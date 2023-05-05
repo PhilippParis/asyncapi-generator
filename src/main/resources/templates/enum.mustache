@@ -1,0 +1,33 @@
+package {{options.modelPackage}};
+
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonValue;
+
+public enum {{type.typeName}} {
+
+{{#type.enumValues}}
+    {{.}}("{{.}}"),
+{{/type.enumValues}}
+    ;
+
+    private final String value;
+
+    {{type.typeName}}(final String value) {
+        this.value = value;
+    }
+
+    @JsonValue
+    public String getValue() {
+        return value;
+    }
+
+    @JsonCreator
+    public static {{type.typeName}} fromValue(String value) {
+        for (final var i : values()) {
+            if (i.value.equals(value)) {
+                return i;
+            }
+        }
+        throw new IllegalStateException("Unexpected value '" + value + "'");
+    }
+}

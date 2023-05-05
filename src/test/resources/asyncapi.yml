@@ -1,0 +1,77 @@
+asyncapi: 2.6.0
+info:
+  title: Account Service
+  version: 1.0.0
+  description: |
+    Manages user accounts in the system.
+servers:
+  production:
+    url: 'https://test.kafka.org'
+    protocol: kafka
+channels:
+  outbox.event.users:
+    subscribe:
+      operationId: emitUserEvent
+      message:
+        $ref: '#/components/messages/UserEvent'
+components:
+  messages:
+    UserEvent:
+      name: userEvent
+      title: User event
+      contentType: application/json
+      bindings:
+        kafka:
+          key:
+            $ref: '#/components/schemas/MessageKey'
+      headers:
+        $ref: '#/components/schemas/MessageHeaders'
+      payload:
+        $ref: '#/components/schemas/UserEventPayload'
+  schemas:
+    MessageKey:
+      type: string
+      format: uuid
+    MessageHeaders:
+      type: object
+      properties:
+        header1:
+          type: integer
+    UserEventPayload:
+      oneOf:
+        - $ref: '#/components/schemas/UserCreatedEvent'
+        - $ref: '#/components/schemas/UserDeletedEvent'
+    UserCreatedEvent:
+      type: object
+      properties:
+        prop1:
+          type: integer
+          format: int32
+      required:
+        - prop1
+    UserDeletedEvent:
+      type: object
+      properties:
+        prop2:
+          type: integer
+        other:
+          $ref: '#/components/schemas/UserCreatedEvent'
+        map:
+          additionalProperties:
+            type: integer
+        value:
+          $ref: '#/components/schemas/Number'
+    Number:
+      type: string
+      enum:
+        - ONE
+        - TWO
+        - THREE
+    UserDeletedEventExtended:
+      allOf:
+        - $ref: '#/components/schemas/UserDeletedEvent'
+        - type: object
+          properties:
+            prop3:
+              type: integer
+

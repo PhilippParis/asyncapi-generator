@@ -1,0 +1,25 @@
+asyncapi: 2.6.0
+info:
+  title: service
+  version: 1.0.0
+channels: {}
+components:
+  schemas:
+    TestEnum1:
+      type: string
+      enum: [ONE, TWO, THREE]
+    TestEnum2:
+      type: string
+      enum:
+        - FOUR
+        - FIVE
+        - SIX
+    TestEnum3:
+      enum:
+        - SEVEN
+        - EIGHT
+    TestEnum4:
+      type: string
+      enum:
+        - nine
+        - ten
