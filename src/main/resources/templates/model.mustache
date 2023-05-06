@@ -1,0 +1,61 @@
+package {{options.modelPackage}};
+
+import java.util.Objects;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+{{#type.properties}}
+    {{#propertyType.import.present}}
+import {{propertyType.import.value}};
+    {{/propertyType.import.present}}
+{{/type.properties}}
+
+
+public class {{type.typeName}} {
+
+{{! class properties }}
+{{#type.properties}}
+    @JsonProperty(value = "{{propertyName}}", required = {{required}})
+    private {{propertyType.typeName}} {{propertyName}};
+{{/type.properties}}
+
+{{! getter / setters }}
+{{#type.properties}}
+    public {{propertyType.typeName}} get{{#PascalCase}}{{propertyName}}{{/PascalCase}}() {
+        return this.{{propertyName}};
+    }
+    public void set{{#PascalCase}}{{propertyName}}{{/PascalCase}}({{propertyType.typeName}} {{propertyName}}) {
+        this.{{propertyName}} = {{propertyName}};
+    }
+    public {{type.typeName}} {{propertyName}}({{propertyType.typeName}} {{propertyName}}) {
+        this.{{propertyName}} = {{propertyName}};
+        return this;
+    }
+
+{{/type.properties}}
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder("{{type.typeName}}{");
+{{#type.properties}}
+        sb.append("{{propertyName}}='").append({{propertyName}}).append("',");
+{{/type.properties}}
+        sb.append("}");
+        return sb.toString();
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        {{type.typeName}} other = ({{type.typeName}}) o;
+{{#type.properties}}
+        {{#-first}}return{{/-first}}{{^-first}}&&{{/-first}} Objects.equals({{propertyName}}, other.{{propertyName}}){{#-last}};{{/-last}}
+{{/type.properties}}
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash({{#type.properties}}{{^-first}}, {{/-first}}{{propertyName}}{{/type.properties}});
+    }
+
+}

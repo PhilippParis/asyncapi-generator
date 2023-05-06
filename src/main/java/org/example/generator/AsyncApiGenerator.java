@@ -2,6 +2,7 @@ package org.example.generator;
 
 import com.samskivert.mustache.Mustache;
 import org.apache.commons.io.IOUtils;
+import org.example.generator.lambdas.MustacheLambda;
 import org.example.generator.model.Options;
 import org.example.generator.model.TemplateContext;
 import org.example.generator.processor.*;
@@ -13,6 +14,7 @@ import org.example.util.Utils;
 import java.nio.charset.StandardCharsets;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 public class AsyncApiGenerator {
@@ -51,7 +53,7 @@ public class AsyncApiGenerator {
     private String applyTemplate(final Type type, final String templateName) {
         try {
             final var template = IOUtils.resourceToString("/templates/" + templateName, StandardCharsets.UTF_8);
-            return Mustache.compiler().compile(template).execute(new TemplateContext(options, type));
+            return Mustache.compiler().compile(template).execute(getTemplateContext(type));
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
@@ -68,6 +70,13 @@ public class AsyncApiGenerator {
 
     public Schema getSchemaByRef(final String ref) {
         return document.getComponents().getSchemas().get(Utils.refToTypeId(ref));
+    }
+
+    private Map<String, Object> getTemplateContext(final Type type) {
+        return Map.of(
+                "PascalCase", new MustacheLambda.PascalCase(),
+                "options", options,
+                "type", type);
     }
 
 }

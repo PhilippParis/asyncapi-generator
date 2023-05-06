@@ -1,0 +1,46 @@
+asyncapi: 2.6.0
+info:
+  title: service
+  version: 1.0.0
+channels: {}
+components:
+  schemas:
+    NumberFormats:
+      type: object
+      properties:
+        propNumber:
+          type: number
+        propFloat:
+          type: number
+          format: float
+        propDouble:
+          type: number
+          format: double
+        propInteger:
+          type: integer
+        propInt32:
+          type: integer
+          format: int32
+        propInt64:
+          type: integer
+          format: int64
+    StringFormats:
+      type: object
+      properties:
+        propString:
+          type: string
+        propBytes:
+          type: string
+          format: byte
+        propDate:
+          type: string
+          format: date
+        propDateTime:
+          type: string
+          format: date-time
+        propPassword:
+          type: string
+          format: password
+        propUuid:
+          type: string
+          format: uuid

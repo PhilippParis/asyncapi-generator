@@ -1,5 +1,6 @@
 package org.example.generator.types;
 
+import org.example.generator.model.ModelProperty;
 import org.example.parser.model.Schema;
 
 import java.util.*;
@@ -8,7 +9,8 @@ public class ObjectType extends Type {
 
     private final String id;
     private final List<Type> children = new ArrayList<>();
-    private final Map<String, Type> properties = new HashMap<>();
+    private final List<ModelProperty> properties = new ArrayList<>();
+
     private Type parent;
 
 
@@ -18,7 +20,11 @@ public class ObjectType extends Type {
     }
 
     public void addProperty(final String name, final Type objectType) {
-        properties.put(name, objectType);
+        properties.add(new ModelProperty(name, objectType, schema.getRequired().contains(name)));
+    }
+
+    public List<ModelProperty> getProperties() {
+        return properties;
     }
 
     public void addChild(final Type type) {

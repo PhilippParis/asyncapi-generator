@@ -1,0 +1,155 @@
+package com.asyncapi.models;
+
+import java.util.Objects;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+
+
+public class Child1 {
+
+    @JsonProperty(value = "child2", required = false)
+    private Child2 child2;
+
+    public Child2 getChild2() {
+        return this.child2;
+    }
+    public void setChild2(Child2 child2) {
+        this.child2 = child2;
+    }
+    public Child1 child2(Child2 child2) {
+        this.child2 = child2;
+        return this;
+    }
+
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder("Child1{");
+        sb.append("child2='").append(child2).append("',");
+        sb.append("}");
+        return sb.toString();
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Child1 other = (Child1) o;
+        return Objects.equals(child2, other.child2);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(child2);
+    }
+
+}
+=============
+package com.asyncapi.models;
+
+import java.util.Objects;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+
+
+public class Child2 {
+
+    @JsonProperty(value = "prop", required = false)
+    private Integer prop;
+
+    public Integer getProp() {
+        return this.prop;
+    }
+    public void setProp(Integer prop) {
+        this.prop = prop;
+    }
+    public Child2 prop(Integer prop) {
+        this.prop = prop;
+        return this;
+    }
+
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder("Child2{");
+        sb.append("prop='").append(prop).append("',");
+        sb.append("}");
+        return sb.toString();
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Child2 other = (Child2) o;
+        return Objects.equals(prop, other.prop);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(prop);
+    }
+
+}
+=============
+package com.asyncapi.models;
+
+import java.util.Objects;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+
+
+public class Root {
+
+    @JsonProperty(value = "child", required = false)
+    private Child1 child;
+    @JsonProperty(value = "child2", required = false)
+    private Child2 child2;
+
+    public Child1 getChild() {
+        return this.child;
+    }
+    public void setChild(Child1 child) {
+        this.child = child;
+    }
+    public Root child(Child1 child) {
+        this.child = child;
+        return this;
+    }
+
+    public Child2 getChild2() {
+        return this.child2;
+    }
+    public void setChild2(Child2 child2) {
+        this.child2 = child2;
+    }
+    public Root child2(Child2 child2) {
+        this.child2 = child2;
+        return this;
+    }
+
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder("Root{");
+        sb.append("child='").append(child).append("',");
+        sb.append("child2='").append(child2).append("',");
+        sb.append("}");
+        return sb.toString();
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Root other = (Root) o;
+        return Objects.equals(child, other.child)
+        && Objects.equals(child2, other.child2);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(child, child2);
+    }
+
+}
