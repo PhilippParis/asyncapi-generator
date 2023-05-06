@@ -2,7 +2,7 @@ package org.example;
 
 public class Options {
 
-    private String modelPackage;
+    private String modelPackage = "com.asyncapi.models";
 
     public String getModelPackage() {
         return modelPackage;
