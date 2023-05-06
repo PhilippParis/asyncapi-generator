@@ -1,7 +1,7 @@
 package org.example.util;
 
-import org.example.model.Schema;
-import org.example.AnonymousTypeName;
+import org.example.parser.model.Schema;
+import org.example.generator.AnonymousTypeName;
 
 public final class Utils {
 

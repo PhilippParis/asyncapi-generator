@@ -1,11 +1,8 @@
-package org.example.types;
+package org.example.generator.types;
 
-import org.example.model.Schema;
+import org.example.parser.model.Schema;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class ObjectType extends Type {
 
@@ -34,5 +31,10 @@ public class ObjectType extends Type {
     @Override
     public String getTypeName() {
         return id;
+    }
+
+    @Override
+    public Optional<String> getTemplate() {
+        return Optional.of("model.mustache");
     }
 }

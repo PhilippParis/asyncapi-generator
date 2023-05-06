@@ -2,6 +2,9 @@ package org.example;
 
 import org.apache.commons.io.FilenameUtils;
 import org.apache.commons.io.IOUtils;
+import org.example.generator.AsyncApiGenerator;
+import org.example.generator.model.Options;
+import org.example.parser.AsyncApiParser;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
@@ -15,6 +18,7 @@ import java.nio.file.Paths;
 import java.util.stream.Stream;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 
 class CodeGeneratorSnapshotTest {
 
@@ -32,6 +36,7 @@ class CodeGeneratorSnapshotTest {
         generator.exec();
 
         final var models = generator.generateModels();
+        assertFalse(models.isEmpty());
         assertEquals(snapshot, String.join(DELIMITER, models));
     }
 

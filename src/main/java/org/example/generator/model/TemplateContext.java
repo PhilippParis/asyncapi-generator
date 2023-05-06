@@ -1,6 +1,6 @@
-package org.example;
+package org.example.generator.model;
 
-import org.example.types.Type;
+import org.example.generator.types.Type;
 
 public class TemplateContext {
 

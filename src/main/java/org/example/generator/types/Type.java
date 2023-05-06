@@ -1,6 +1,6 @@
-package org.example.types;
+package org.example.generator.types;
 
-import org.example.model.Schema;
+import org.example.parser.model.Schema;
 
 import java.util.Optional;
 

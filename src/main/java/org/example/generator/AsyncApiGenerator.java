@@ -1,11 +1,13 @@
-package org.example;
+package org.example.generator;
 
 import com.samskivert.mustache.Mustache;
 import org.apache.commons.io.IOUtils;
-import org.example.model.AsyncApiDocument;
-import org.example.model.Schema;
-import org.example.processor.*;
-import org.example.types.Type;
+import org.example.generator.model.Options;
+import org.example.generator.model.TemplateContext;
+import org.example.generator.processor.*;
+import org.example.parser.model.AsyncApiDocument;
+import org.example.parser.model.Schema;
+import org.example.generator.types.Type;
 import org.example.util.Utils;
 
 import java.nio.charset.StandardCharsets;

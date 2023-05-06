@@ -1,9 +1,9 @@
-package org.example.processor;
+package org.example.generator.processor;
 
-import org.example.model.Schema;
+import org.example.parser.model.Schema;
 import org.apache.commons.lang3.StringUtils;
-import org.example.AsyncApiGenerator;
-import org.example.types.Type;
+import org.example.generator.AsyncApiGenerator;
+import org.example.generator.types.Type;
 import org.example.util.Utils;
 
 public class RefProcessor extends Processor{

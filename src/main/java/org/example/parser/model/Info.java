@@ -1,4 +1,4 @@
-package org.example.model;
+package org.example.parser.model;
 
 public class Info {
     private String title;

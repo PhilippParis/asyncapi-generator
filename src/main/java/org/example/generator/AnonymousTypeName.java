@@ -1,4 +1,4 @@
-package org.example;
+package org.example.generator;
 
 public class AnonymousTypeName {
 

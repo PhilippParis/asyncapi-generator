@@ -1,4 +1,4 @@
-package org.example.model;
+package org.example.parser.model;
 
 import java.util.Map;
 

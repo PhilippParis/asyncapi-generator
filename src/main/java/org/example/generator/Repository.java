@@ -1,6 +1,6 @@
-package org.example;
+package org.example.generator;
 
-import org.example.types.Type;
+import org.example.generator.types.Type;
 
 import java.util.Collection;
 import java.util.HashMap;
