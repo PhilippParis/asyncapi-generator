@@ -53,7 +53,7 @@ public class AsyncApiGenerator {
     private String applyTemplate(final Type type, final String templateName) {
         try {
             final var template = IOUtils.resourceToString("/templates/" + templateName, StandardCharsets.UTF_8);
-            return Mustache.compiler().compile(template).execute(getTemplateContext(type));
+            return Mustache.compiler().escapeHTML(false).compile(template).execute(getTemplateContext(type));
         } catch (Exception e) {
             throw new RuntimeException(e);
         }

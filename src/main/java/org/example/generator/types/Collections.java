@@ -2,7 +2,8 @@ package org.example.generator.types;
 
 import org.example.parser.model.Schema;
 
-import java.util.Optional;
+import java.util.HashSet;
+import java.util.Set;
 
 public class Collections {
 
@@ -15,8 +16,11 @@ public class Collections {
         }
 
         @Override
-        public Optional<String> getImport() {
-            return Optional.of("java.util.ArrayList");
+        public Set<String> getImports() {
+            final var imports = new HashSet<String>();
+            imports.add("java.util.ArrayList");
+            imports.addAll(child.getImports());
+            return imports;
         }
         @Override
         public String getTypeName() {
@@ -33,8 +37,11 @@ public class Collections {
         }
 
         @Override
-        public Optional<String> getImport() {
-            return Optional.of("java.util.HashMap");
+        public Set<String> getImports() {
+            final var imports = new HashSet<String>();
+            imports.add("java.util.HashMap");
+            imports.addAll(child.getImports());
+            return imports;
         }
         @Override
         public String getTypeName() {

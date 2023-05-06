@@ -7,6 +7,8 @@ import org.example.generator.AsyncApiGenerator;
 import org.example.generator.types.ObjectType;
 import org.example.generator.types.Type;
 
+import java.util.Objects;
+
 public class ObjectsProcessor extends Processor {
 
     private final Repository repository;
@@ -17,7 +19,7 @@ public class ObjectsProcessor extends Processor {
 
     @Override
     public boolean check(Schema schema) {
-        return "object".equals(schema.getType());
+        return "object".equals(schema.getType()) && Objects.isNull(schema.getAdditionalProperties());
     }
 
     @Override

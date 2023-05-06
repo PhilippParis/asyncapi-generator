@@ -1,0 +1,28 @@
+asyncapi: 2.6.0
+info:
+  title: service
+  version: 1.0.0
+channels: {}
+components:
+  schemas:
+    Root:
+      type: object
+      properties:
+        uuidMap:
+          type: object
+          additionalProperties:
+            type: string
+            format: uuid
+        integerMap:
+          type: object
+          additionalProperties:
+            type: integer
+        objectMap:
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/Item'
+    Item:
+      type: object
+      properties:
+        prop:
+          type: integer

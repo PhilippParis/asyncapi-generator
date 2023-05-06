@@ -3,11 +3,9 @@ package {{options.modelPackage}};
 import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-{{#type.properties}}
-    {{#propertyType.import.present}}
-import {{propertyType.import.value}};
-    {{/propertyType.import.present}}
-{{/type.properties}}
+{{#type.imports}}
+import {{.}};
+{{/type.imports}}
 
 
 public class {{type.typeName}} {

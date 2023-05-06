@@ -4,6 +4,7 @@ import org.example.generator.model.ModelProperty;
 import org.example.parser.model.Schema;
 
 import java.util.*;
+import java.util.stream.Collectors;
 
 public class ObjectType extends Type {
 
@@ -32,6 +33,11 @@ public class ObjectType extends Type {
         if (type instanceof ObjectType) {
             ((ObjectType) type).parent = this;
         }
+    }
+
+    @Override
+    public Set<String> getImports() {
+        return properties.stream().flatMap(i -> i.getPropertyType().getImports().stream()).collect(Collectors.toSet());
     }
 
     @Override

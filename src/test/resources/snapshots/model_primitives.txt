@@ -125,8 +125,8 @@ package com.asyncapi.models;
 import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-import java.time.LocalDate;
 import java.time.OffsetDateTime;
+import java.time.LocalDate;
 import java.util.UUID;
 
 

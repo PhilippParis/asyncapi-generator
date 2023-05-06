@@ -3,6 +3,7 @@ package org.example.generator.types;
 import org.example.parser.model.Schema;
 
 import java.util.Optional;
+import java.util.Set;
 
 public class Primitives {
 
@@ -46,8 +47,8 @@ public class Primitives {
             return "LocalDate";
         }
         @Override
-        public Optional<String> getImport() {
-            return Optional.of("java.time.LocalDate");
+        public Set<String> getImports() {
+            return Set.of("java.time.LocalDate");
         }
     }
 
@@ -60,8 +61,8 @@ public class Primitives {
             return "OffsetDateTime";
         }
         @Override
-        public Optional<String> getImport() {
-            return Optional.of("java.time.OffsetDateTime");
+        public Set<String> getImports() {
+            return Set.of("java.time.OffsetDateTime");
         }
     }
 
@@ -74,8 +75,8 @@ public class Primitives {
             return "UUID";
         }
         @Override
-        public Optional<String> getImport() {
-            return Optional.ofNullable("java.util.UUID");
+        public Set<String> getImports() {
+            return Set.of("java.util.UUID");
         }
     }
 

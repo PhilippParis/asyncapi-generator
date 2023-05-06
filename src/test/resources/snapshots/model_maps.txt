@@ -1,0 +1,125 @@
+package com.asyncapi.models;
+
+import java.util.Objects;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+
+
+public class Item {
+
+    @JsonProperty(value = "prop", required = false)
+    private Integer prop;
+
+    public Integer getProp() {
+        return this.prop;
+    }
+    public void setProp(Integer prop) {
+        this.prop = prop;
+    }
+    public Item prop(Integer prop) {
+        this.prop = prop;
+        return this;
+    }
+
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder("Item{");
+        sb.append("prop='").append(prop).append("',");
+        sb.append("}");
+        return sb.toString();
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Item other = (Item) o;
+        return Objects.equals(prop, other.prop);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(prop);
+    }
+
+}
+=============
+package com.asyncapi.models;
+
+import java.util.Objects;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+import java.util.HashMap;
+import java.util.UUID;
+
+
+public class Root {
+
+    @JsonProperty(value = "uuidMap", required = false)
+    private HashMap<UUID> uuidMap;
+    @JsonProperty(value = "integerMap", required = false)
+    private HashMap<Integer> integerMap;
+    @JsonProperty(value = "objectMap", required = false)
+    private HashMap<Item> objectMap;
+
+    public HashMap<UUID> getUuidMap() {
+        return this.uuidMap;
+    }
+    public void setUuidMap(HashMap<UUID> uuidMap) {
+        this.uuidMap = uuidMap;
+    }
+    public Root uuidMap(HashMap<UUID> uuidMap) {
+        this.uuidMap = uuidMap;
+        return this;
+    }
+
+    public HashMap<Integer> getIntegerMap() {
+        return this.integerMap;
+    }
+    public void setIntegerMap(HashMap<Integer> integerMap) {
+        this.integerMap = integerMap;
+    }
+    public Root integerMap(HashMap<Integer> integerMap) {
+        this.integerMap = integerMap;
+        return this;
+    }
+
+    public HashMap<Item> getObjectMap() {
+        return this.objectMap;
+    }
+    public void setObjectMap(HashMap<Item> objectMap) {
+        this.objectMap = objectMap;
+    }
+    public Root objectMap(HashMap<Item> objectMap) {
+        this.objectMap = objectMap;
+        return this;
+    }
+
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder("Root{");
+        sb.append("uuidMap='").append(uuidMap).append("',");
+        sb.append("integerMap='").append(integerMap).append("',");
+        sb.append("objectMap='").append(objectMap).append("',");
+        sb.append("}");
+        return sb.toString();
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Root other = (Root) o;
+        return Objects.equals(uuidMap, other.uuidMap)
+        && Objects.equals(integerMap, other.integerMap)
+        && Objects.equals(objectMap, other.objectMap);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(uuidMap, integerMap, objectMap);
+    }
+
+}

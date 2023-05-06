@@ -3,6 +3,7 @@ package org.example.generator.types;
 import org.example.parser.model.Schema;
 
 import java.util.Optional;
+import java.util.Set;
 
 public abstract class Type {
 
@@ -14,8 +15,8 @@ public abstract class Type {
 
     public abstract String getTypeName();
 
-    public Optional<String> getImport() {
-        return Optional.empty();
+    public Set<String> getImports() {
+        return Set.of();
     }
 
     public Optional<String> getTemplate() {
