@@ -19,7 +19,7 @@ import {{.}};
 {{/type.children}}
 })
 {{/type.children.empty}}
-public class {{type.typeName}}{{#type.parent}} extends {{type.parent.typeName}}{{/type.parent}} {
+public {{#type.properties.empty}}abstract {{/type.properties.empty}}class {{type.typeName}}{{#type.parent}} extends {{type.parent.typeName}}{{/type.parent}} {
 
 {{! class properties }}
 {{#type.properties}}
@@ -42,6 +42,7 @@ public class {{type.typeName}}{{#type.parent}} extends {{type.parent.typeName}}{
 
 {{/type.properties}}
 
+{{^type.properties.empty}}
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder("{{type.typeName}}{");
@@ -67,5 +68,6 @@ public class {{type.typeName}}{{#type.parent}} extends {{type.parent.typeName}}{
     public int hashCode() {
         return Objects.hash(super.hashCode(){{#type.properties}}, {{propertyName}}{{/type.properties}});
     }
+{{/type.properties.empty}}
 
 }

@@ -11,7 +11,6 @@ public class ObjectType extends Type {
     private final String id;
     private final List<Type> children = new ArrayList<>();
     private final List<ModelProperty> properties = new ArrayList<>();
-
     private Type parent;
 
 
