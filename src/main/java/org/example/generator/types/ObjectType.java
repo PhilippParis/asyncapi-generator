@@ -35,6 +35,10 @@ public class ObjectType extends Type {
         }
     }
 
+    public String getDiscriminator() {
+        return Optional.ofNullable(schema.getDiscriminator()).orElse("@class");
+    }
+
     @Override
     public Set<String> getImports() {
         return properties.stream().flatMap(i -> i.getPropertyType().getImports().stream()).collect(Collectors.toSet());

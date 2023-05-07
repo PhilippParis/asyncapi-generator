@@ -1,0 +1,27 @@
+asyncapi: 2.6.0
+info:
+  title: service
+  version: 1.0.0
+channels: {}
+components:
+  schemas:
+    Root:
+      type: object
+      properties:
+        rootProp:
+          type: integer
+      discriminator: objectType
+    Child1:
+      allOf:
+        - $ref: '#/components/schemas/Root'
+        - type: object
+          properties:
+            childProp1:
+              type: integer
+    Child2:
+      allOf:
+        - $ref: '#/components/schemas/Root'
+        - type: object
+          properties:
+            childProp2:
+              type: integer

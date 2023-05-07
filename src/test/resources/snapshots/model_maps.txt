@@ -4,7 +4,6 @@ import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 
-
 public class Item {
 
     @JsonProperty(value = "prop", required = false)
@@ -34,13 +33,14 @@ public class Item {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
+        if (!super.equals(o)) return false;
         Item other = (Item) o;
         return Objects.equals(prop, other.prop);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(prop);
+        return Objects.hash(super.hashCode(), prop);
     }
 
 }
@@ -52,7 +52,6 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.util.HashMap;
 import java.util.UUID;
-
 
 public class Root {
 
@@ -111,6 +110,7 @@ public class Root {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
+        if (!super.equals(o)) return false;
         Root other = (Root) o;
         return Objects.equals(uuidMap, other.uuidMap)
         && Objects.equals(integerMap, other.integerMap)
@@ -119,7 +119,7 @@ public class Root {
 
     @Override
     public int hashCode() {
-        return Objects.hash(uuidMap, integerMap, objectMap);
+        return Objects.hash(super.hashCode(), uuidMap, integerMap, objectMap);
     }
 
 }

@@ -1,0 +1,147 @@
+package com.asyncapi.models;
+
+import java.util.Objects;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+
+public class Child1 extends Root {
+
+    @JsonProperty(value = "childProp1", required = false)
+    private Integer childProp1;
+
+    public Integer getChildProp1() {
+        return this.childProp1;
+    }
+    public void setChildProp1(Integer childProp1) {
+        this.childProp1 = childProp1;
+    }
+    public Child1 childProp1(Integer childProp1) {
+        this.childProp1 = childProp1;
+        return this;
+    }
+
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder("Child1{");
+        sb.append("childProp1='").append(childProp1).append("',");
+        sb.append("}");
+        return sb.toString();
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        if (!super.equals(o)) return false;
+        Child1 other = (Child1) o;
+        return Objects.equals(childProp1, other.childProp1);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(super.hashCode(), childProp1);
+    }
+
+}
+=============
+package com.asyncapi.models;
+
+import java.util.Objects;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonTypeInfo;
+import com.fasterxml.jackson.annotation.JsonSubTypes;
+
+
+@JsonTypeInfo(use = JsonTypeInfo.Id.NAME, include = JsonTypeInfo.As.PROPERTY, property = "objectType")
+@JsonSubTypes({
+    @JsonSubTypes.Type(value = Child1.class, name = "Child1"),
+    @JsonSubTypes.Type(value = Child2.class, name = "Child2")
+})
+public class Root {
+
+    @JsonProperty(value = "rootProp", required = false)
+    private Integer rootProp;
+
+    public Integer getRootProp() {
+        return this.rootProp;
+    }
+    public void setRootProp(Integer rootProp) {
+        this.rootProp = rootProp;
+    }
+    public Root rootProp(Integer rootProp) {
+        this.rootProp = rootProp;
+        return this;
+    }
+
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder("Root{");
+        sb.append("rootProp='").append(rootProp).append("',");
+        sb.append("}");
+        return sb.toString();
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        if (!super.equals(o)) return false;
+        Root other = (Root) o;
+        return Objects.equals(rootProp, other.rootProp);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(super.hashCode(), rootProp);
+    }
+
+}
+=============
+package com.asyncapi.models;
+
+import java.util.Objects;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+
+public class Child2 extends Root {
+
+    @JsonProperty(value = "childProp2", required = false)
+    private Integer childProp2;
+
+    public Integer getChildProp2() {
+        return this.childProp2;
+    }
+    public void setChildProp2(Integer childProp2) {
+        this.childProp2 = childProp2;
+    }
+    public Child2 childProp2(Integer childProp2) {
+        this.childProp2 = childProp2;
+        return this;
+    }
+
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder("Child2{");
+        sb.append("childProp2='").append(childProp2).append("',");
+        sb.append("}");
+        return sb.toString();
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        if (!super.equals(o)) return false;
+        Child2 other = (Child2) o;
+        return Objects.equals(childProp2, other.childProp2);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(super.hashCode(), childProp2);
+    }
+
+}
