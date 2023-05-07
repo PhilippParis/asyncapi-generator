@@ -23,4 +23,8 @@ public abstract class Type {
         return Optional.empty();
     }
 
+    public boolean isPassword() {
+        return "password".equals(schema.getFormat());
+    }
+
 }

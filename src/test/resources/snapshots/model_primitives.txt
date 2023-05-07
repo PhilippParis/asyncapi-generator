@@ -3,6 +3,131 @@ package com.asyncapi.models;
 import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+import java.time.OffsetDateTime;
+import java.time.LocalDate;
+import java.util.UUID;
+
+public class StringFormats {
+
+    @JsonProperty(value = "propString", required = false)
+    private String propString;
+    @JsonProperty(value = "propBytes", required = false)
+    private String propBytes;
+    @JsonProperty(value = "propDate", required = false)
+    private LocalDate propDate;
+    @JsonProperty(value = "propDateTime", required = false)
+    private OffsetDateTime propDateTime;
+    @JsonProperty(value = "propPassword", required = false)
+    private String propPassword;
+    @JsonProperty(value = "propUuid", required = false)
+    private UUID propUuid;
+
+    public String getPropString() {
+        return this.propString;
+    }
+    public void setPropString(String propString) {
+        this.propString = propString;
+    }
+    public StringFormats propString(String propString) {
+        this.propString = propString;
+        return this;
+    }
+
+    public String getPropBytes() {
+        return this.propBytes;
+    }
+    public void setPropBytes(String propBytes) {
+        this.propBytes = propBytes;
+    }
+    public StringFormats propBytes(String propBytes) {
+        this.propBytes = propBytes;
+        return this;
+    }
+
+    public LocalDate getPropDate() {
+        return this.propDate;
+    }
+    public void setPropDate(LocalDate propDate) {
+        this.propDate = propDate;
+    }
+    public StringFormats propDate(LocalDate propDate) {
+        this.propDate = propDate;
+        return this;
+    }
+
+    public OffsetDateTime getPropDateTime() {
+        return this.propDateTime;
+    }
+    public void setPropDateTime(OffsetDateTime propDateTime) {
+        this.propDateTime = propDateTime;
+    }
+    public StringFormats propDateTime(OffsetDateTime propDateTime) {
+        this.propDateTime = propDateTime;
+        return this;
+    }
+
+    public String getPropPassword() {
+        return this.propPassword;
+    }
+    public void setPropPassword(String propPassword) {
+        this.propPassword = propPassword;
+    }
+    public StringFormats propPassword(String propPassword) {
+        this.propPassword = propPassword;
+        return this;
+    }
+
+    public UUID getPropUuid() {
+        return this.propUuid;
+    }
+    public void setPropUuid(UUID propUuid) {
+        this.propUuid = propUuid;
+    }
+    public StringFormats propUuid(UUID propUuid) {
+        this.propUuid = propUuid;
+        return this;
+    }
+
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder("StringFormats{");
+        sb.append("propString='").append(propString).append("',");
+        sb.append("propBytes='").append(propBytes).append("',");
+        sb.append("propDate='").append(propDate).append("',");
+        sb.append("propDateTime='").append(propDateTime).append("',");
+        sb.append("propPassword='").append("***").append("',");
+        sb.append("propUuid='").append(propUuid).append("',");
+        sb.append("}");
+        return sb.toString();
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        if (!super.equals(o)) return false;
+        StringFormats other = (StringFormats) o;
+        return Objects.equals(propString, other.propString)
+        && Objects.equals(propBytes, other.propBytes)
+        && Objects.equals(propDate, other.propDate)
+        && Objects.equals(propDateTime, other.propDateTime)
+        && Objects.equals(propPassword, other.propPassword)
+        && Objects.equals(propUuid, other.propUuid);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(super.hashCode(), propString, propBytes, propDate, propDateTime, propPassword, propUuid);
+    }
+
+}
+=============
+package com.asyncapi.models;
+
+import java.util.Objects;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 
 public class NumberFormats {
 
@@ -116,131 +241,6 @@ public class NumberFormats {
     @Override
     public int hashCode() {
         return Objects.hash(super.hashCode(), propNumber, propFloat, propDouble, propInteger, propInt32, propInt64);
-    }
-
-}
-=============
-package com.asyncapi.models;
-
-import java.util.Objects;
-import com.fasterxml.jackson.annotation.JsonProperty;
-
-import java.time.OffsetDateTime;
-import java.time.LocalDate;
-import java.util.UUID;
-
-public class StringFormats {
-
-    @JsonProperty(value = "propString", required = false)
-    private String propString;
-    @JsonProperty(value = "propBytes", required = false)
-    private String propBytes;
-    @JsonProperty(value = "propDate", required = false)
-    private LocalDate propDate;
-    @JsonProperty(value = "propDateTime", required = false)
-    private OffsetDateTime propDateTime;
-    @JsonProperty(value = "propPassword", required = false)
-    private String propPassword;
-    @JsonProperty(value = "propUuid", required = false)
-    private UUID propUuid;
-
-    public String getPropString() {
-        return this.propString;
-    }
-    public void setPropString(String propString) {
-        this.propString = propString;
-    }
-    public StringFormats propString(String propString) {
-        this.propString = propString;
-        return this;
-    }
-
-    public String getPropBytes() {
-        return this.propBytes;
-    }
-    public void setPropBytes(String propBytes) {
-        this.propBytes = propBytes;
-    }
-    public StringFormats propBytes(String propBytes) {
-        this.propBytes = propBytes;
-        return this;
-    }
-
-    public LocalDate getPropDate() {
-        return this.propDate;
-    }
-    public void setPropDate(LocalDate propDate) {
-        this.propDate = propDate;
-    }
-    public StringFormats propDate(LocalDate propDate) {
-        this.propDate = propDate;
-        return this;
-    }
-
-    public OffsetDateTime getPropDateTime() {
-        return this.propDateTime;
-    }
-    public void setPropDateTime(OffsetDateTime propDateTime) {
-        this.propDateTime = propDateTime;
-    }
-    public StringFormats propDateTime(OffsetDateTime propDateTime) {
-        this.propDateTime = propDateTime;
-        return this;
-    }
-
-    public String getPropPassword() {
-        return this.propPassword;
-    }
-    public void setPropPassword(String propPassword) {
-        this.propPassword = propPassword;
-    }
-    public StringFormats propPassword(String propPassword) {
-        this.propPassword = propPassword;
-        return this;
-    }
-
-    public UUID getPropUuid() {
-        return this.propUuid;
-    }
-    public void setPropUuid(UUID propUuid) {
-        this.propUuid = propUuid;
-    }
-    public StringFormats propUuid(UUID propUuid) {
-        this.propUuid = propUuid;
-        return this;
-    }
-
-
-    @Override
-    public String toString() {
-        StringBuilder sb = new StringBuilder("StringFormats{");
-        sb.append("propString='").append(propString).append("',");
-        sb.append("propBytes='").append(propBytes).append("',");
-        sb.append("propDate='").append(propDate).append("',");
-        sb.append("propDateTime='").append(propDateTime).append("',");
-        sb.append("propPassword='").append(propPassword).append("',");
-        sb.append("propUuid='").append(propUuid).append("',");
-        sb.append("}");
-        return sb.toString();
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        if (!super.equals(o)) return false;
-        StringFormats other = (StringFormats) o;
-        return Objects.equals(propString, other.propString)
-        && Objects.equals(propBytes, other.propBytes)
-        && Objects.equals(propDate, other.propDate)
-        && Objects.equals(propDateTime, other.propDateTime)
-        && Objects.equals(propPassword, other.propPassword)
-        && Objects.equals(propUuid, other.propUuid);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(super.hashCode(), propString, propBytes, propDate, propDateTime, propPassword, propUuid);
     }
 
 }

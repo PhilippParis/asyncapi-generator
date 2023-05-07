@@ -47,7 +47,7 @@ public {{#type.properties.empty}}abstract {{/type.properties.empty}}class {{type
     public String toString() {
         StringBuilder sb = new StringBuilder("{{type.typeName}}{");
 {{#type.properties}}
-        sb.append("{{propertyName}}='").append({{propertyName}}).append("',");
+        sb.append("{{propertyName}}='").append({{#propertyType.password}}"***"{{/propertyType.password}}{{^propertyType.password}}{{propertyName}}{{/propertyType.password}}).append("',");
 {{/type.properties}}
         sb.append("}");
         return sb.toString();
