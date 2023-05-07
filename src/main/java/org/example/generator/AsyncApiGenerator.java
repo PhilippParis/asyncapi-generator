@@ -3,19 +3,19 @@ package org.example.generator;
 import com.samskivert.mustache.Mustache;
 import org.apache.commons.io.IOUtils;
 import org.example.generator.lambdas.MustacheLambda;
+import org.example.generator.model.GeneratedFile;
 import org.example.generator.model.Options;
-import org.example.generator.model.TemplateContext;
 import org.example.generator.processor.*;
+import org.example.generator.types.Type;
 import org.example.parser.model.AsyncApiDocument;
 import org.example.parser.model.Schema;
-import org.example.generator.types.Type;
+import org.example.util.PathUtils;
 import org.example.util.Utils;
 
 import java.nio.charset.StandardCharsets;
-import java.util.HashSet;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
-import java.util.Set;
 
 public class AsyncApiGenerator {
 
@@ -36,16 +36,21 @@ public class AsyncApiGenerator {
         this.options = options;
     }
 
-    public void exec() {
+    public List<GeneratedFile> exec() {
         for (final var entry : document.getComponents().getSchemas().entrySet()) {
             process(entry.getKey(), entry.getValue());
         }
+        return generateModels();
     }
 
-    public Set<String> generateModels() {
-        final var files = new HashSet<String>();
+    private List<GeneratedFile> generateModels() {
+        final var files = new ArrayList<GeneratedFile>();
         for (final var type : repository.getAll()) {
-            type.getTemplate().ifPresent(i -> files.add(applyTemplate(type, i)));
+            if (type.getTemplate().isEmpty()) {
+                continue;
+            }
+            final var content = applyTemplate(type, type.getTemplate().get());
+            files.add(new GeneratedFile(PathUtils.getModelPath(options, type), content));
         }
         return files;
     }

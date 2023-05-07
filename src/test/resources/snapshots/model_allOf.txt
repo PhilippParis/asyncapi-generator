@@ -1,3 +1,5 @@
+generated-sources\asyncapi\src\gen\java\main\com\asyncapi\models\Child1.java
+--------------------
 package com.asyncapi.models;
 
 import java.util.Objects;
@@ -44,7 +46,58 @@ public class Child1 extends Root {
     }
 
 }
-=============
+====================
+generated-sources\asyncapi\src\gen\java\main\com\asyncapi\models\Child2.java
+--------------------
+package com.asyncapi.models;
+
+import java.util.Objects;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+
+public class Child2 extends Root {
+
+    @JsonProperty(value = "childProp2", required = false)
+    private Integer childProp2;
+
+    public Integer getChildProp2() {
+        return this.childProp2;
+    }
+    public void setChildProp2(Integer childProp2) {
+        this.childProp2 = childProp2;
+    }
+    public Child2 childProp2(Integer childProp2) {
+        this.childProp2 = childProp2;
+        return this;
+    }
+
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder("Child2{");
+        sb.append("childProp2='").append(childProp2).append("',");
+        sb.append("}");
+        return sb.toString();
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        if (!super.equals(o)) return false;
+        Child2 other = (Child2) o;
+        return Objects.equals(childProp2, other.childProp2);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(super.hashCode(), childProp2);
+    }
+
+}
+====================
+generated-sources\asyncapi\src\gen\java\main\com\asyncapi\models\Root.java
+--------------------
 package com.asyncapi.models;
 
 import java.util.Objects;
@@ -98,50 +151,4 @@ public class Root {
     }
 
 }
-=============
-package com.asyncapi.models;
-
-import java.util.Objects;
-import com.fasterxml.jackson.annotation.JsonProperty;
-
-
-public class Child2 extends Root {
-
-    @JsonProperty(value = "childProp2", required = false)
-    private Integer childProp2;
-
-    public Integer getChildProp2() {
-        return this.childProp2;
-    }
-    public void setChildProp2(Integer childProp2) {
-        this.childProp2 = childProp2;
-    }
-    public Child2 childProp2(Integer childProp2) {
-        this.childProp2 = childProp2;
-        return this;
-    }
-
-
-    @Override
-    public String toString() {
-        StringBuilder sb = new StringBuilder("Child2{");
-        sb.append("childProp2='").append(childProp2).append("',");
-        sb.append("}");
-        return sb.toString();
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        if (!super.equals(o)) return false;
-        Child2 other = (Child2) o;
-        return Objects.equals(childProp2, other.childProp2);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(super.hashCode(), childProp2);
-    }
-
-}
+====================

@@ -1,103 +1,5 @@
-package com.asyncapi.models;
-
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonValue;
-
-public enum TestEnum2 {
-
-    FOUR("FOUR"),
-    FIVE("FIVE"),
-    SIX("SIX"),
-    ;
-
-    private final String value;
-
-    TestEnum2(final String value) {
-        this.value = value;
-    }
-
-    @JsonValue
-    public String getValue() {
-        return value;
-    }
-
-    @JsonCreator
-    public static TestEnum2 fromValue(String value) {
-        for (final var i : values()) {
-            if (i.value.equals(value)) {
-                return i;
-            }
-        }
-        throw new IllegalStateException("Unexpected value '" + value + "'");
-    }
-}
-=============
-package com.asyncapi.models;
-
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonValue;
-
-public enum TestEnum3 {
-
-    SEVEN("SEVEN"),
-    EIGHT("EIGHT"),
-    ;
-
-    private final String value;
-
-    TestEnum3(final String value) {
-        this.value = value;
-    }
-
-    @JsonValue
-    public String getValue() {
-        return value;
-    }
-
-    @JsonCreator
-    public static TestEnum3 fromValue(String value) {
-        for (final var i : values()) {
-            if (i.value.equals(value)) {
-                return i;
-            }
-        }
-        throw new IllegalStateException("Unexpected value '" + value + "'");
-    }
-}
-=============
-package com.asyncapi.models;
-
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonValue;
-
-public enum TestEnum4 {
-
-    NINE("NINE"),
-    TEN("TEN"),
-    ;
-
-    private final String value;
-
-    TestEnum4(final String value) {
-        this.value = value;
-    }
-
-    @JsonValue
-    public String getValue() {
-        return value;
-    }
-
-    @JsonCreator
-    public static TestEnum4 fromValue(String value) {
-        for (final var i : values()) {
-            if (i.value.equals(value)) {
-                return i;
-            }
-        }
-        throw new IllegalStateException("Unexpected value '" + value + "'");
-    }
-}
-=============
+generated-sources\asyncapi\src\gen\java\main\com\asyncapi\models\TestEnum1.java
+--------------------
 package com.asyncapi.models;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -131,3 +33,110 @@ public enum TestEnum1 {
         throw new IllegalStateException("Unexpected value '" + value + "'");
     }
 }
+====================
+generated-sources\asyncapi\src\gen\java\main\com\asyncapi\models\TestEnum2.java
+--------------------
+package com.asyncapi.models;
+
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonValue;
+
+public enum TestEnum2 {
+
+    FOUR("FOUR"),
+    FIVE("FIVE"),
+    SIX("SIX"),
+    ;
+
+    private final String value;
+
+    TestEnum2(final String value) {
+        this.value = value;
+    }
+
+    @JsonValue
+    public String getValue() {
+        return value;
+    }
+
+    @JsonCreator
+    public static TestEnum2 fromValue(String value) {
+        for (final var i : values()) {
+            if (i.value.equals(value)) {
+                return i;
+            }
+        }
+        throw new IllegalStateException("Unexpected value '" + value + "'");
+    }
+}
+====================
+generated-sources\asyncapi\src\gen\java\main\com\asyncapi\models\TestEnum3.java
+--------------------
+package com.asyncapi.models;
+
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonValue;
+
+public enum TestEnum3 {
+
+    SEVEN("SEVEN"),
+    EIGHT("EIGHT"),
+    ;
+
+    private final String value;
+
+    TestEnum3(final String value) {
+        this.value = value;
+    }
+
+    @JsonValue
+    public String getValue() {
+        return value;
+    }
+
+    @JsonCreator
+    public static TestEnum3 fromValue(String value) {
+        for (final var i : values()) {
+            if (i.value.equals(value)) {
+                return i;
+            }
+        }
+        throw new IllegalStateException("Unexpected value '" + value + "'");
+    }
+}
+====================
+generated-sources\asyncapi\src\gen\java\main\com\asyncapi\models\TestEnum4.java
+--------------------
+package com.asyncapi.models;
+
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonValue;
+
+public enum TestEnum4 {
+
+    NINE("NINE"),
+    TEN("TEN"),
+    ;
+
+    private final String value;
+
+    TestEnum4(final String value) {
+        this.value = value;
+    }
+
+    @JsonValue
+    public String getValue() {
+        return value;
+    }
+
+    @JsonCreator
+    public static TestEnum4 fromValue(String value) {
+        for (final var i : values()) {
+            if (i.value.equals(value)) {
+                return i;
+            }
+        }
+        throw new IllegalStateException("Unexpected value '" + value + "'");
+    }
+}
+====================

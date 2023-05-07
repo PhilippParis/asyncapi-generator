@@ -1,3 +1,129 @@
+generated-sources\asyncapi\src\gen\java\main\com\asyncapi\models\NumberFormats.java
+--------------------
+package com.asyncapi.models;
+
+import java.util.Objects;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+
+public class NumberFormats {
+
+    @JsonProperty(value = "propNumber", required = false)
+    private Double propNumber;
+    @JsonProperty(value = "propFloat", required = false)
+    private Float propFloat;
+    @JsonProperty(value = "propDouble", required = false)
+    private Double propDouble;
+    @JsonProperty(value = "propInteger", required = false)
+    private Integer propInteger;
+    @JsonProperty(value = "propInt32", required = false)
+    private Integer propInt32;
+    @JsonProperty(value = "propInt64", required = false)
+    private Long propInt64;
+
+    public Double getPropNumber() {
+        return this.propNumber;
+    }
+    public void setPropNumber(Double propNumber) {
+        this.propNumber = propNumber;
+    }
+    public NumberFormats propNumber(Double propNumber) {
+        this.propNumber = propNumber;
+        return this;
+    }
+
+    public Float getPropFloat() {
+        return this.propFloat;
+    }
+    public void setPropFloat(Float propFloat) {
+        this.propFloat = propFloat;
+    }
+    public NumberFormats propFloat(Float propFloat) {
+        this.propFloat = propFloat;
+        return this;
+    }
+
+    public Double getPropDouble() {
+        return this.propDouble;
+    }
+    public void setPropDouble(Double propDouble) {
+        this.propDouble = propDouble;
+    }
+    public NumberFormats propDouble(Double propDouble) {
+        this.propDouble = propDouble;
+        return this;
+    }
+
+    public Integer getPropInteger() {
+        return this.propInteger;
+    }
+    public void setPropInteger(Integer propInteger) {
+        this.propInteger = propInteger;
+    }
+    public NumberFormats propInteger(Integer propInteger) {
+        this.propInteger = propInteger;
+        return this;
+    }
+
+    public Integer getPropInt32() {
+        return this.propInt32;
+    }
+    public void setPropInt32(Integer propInt32) {
+        this.propInt32 = propInt32;
+    }
+    public NumberFormats propInt32(Integer propInt32) {
+        this.propInt32 = propInt32;
+        return this;
+    }
+
+    public Long getPropInt64() {
+        return this.propInt64;
+    }
+    public void setPropInt64(Long propInt64) {
+        this.propInt64 = propInt64;
+    }
+    public NumberFormats propInt64(Long propInt64) {
+        this.propInt64 = propInt64;
+        return this;
+    }
+
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder("NumberFormats{");
+        sb.append("propNumber='").append(propNumber).append("',");
+        sb.append("propFloat='").append(propFloat).append("',");
+        sb.append("propDouble='").append(propDouble).append("',");
+        sb.append("propInteger='").append(propInteger).append("',");
+        sb.append("propInt32='").append(propInt32).append("',");
+        sb.append("propInt64='").append(propInt64).append("',");
+        sb.append("}");
+        return sb.toString();
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        if (!super.equals(o)) return false;
+        NumberFormats other = (NumberFormats) o;
+        return Objects.equals(propNumber, other.propNumber)
+        && Objects.equals(propFloat, other.propFloat)
+        && Objects.equals(propDouble, other.propDouble)
+        && Objects.equals(propInteger, other.propInteger)
+        && Objects.equals(propInt32, other.propInt32)
+        && Objects.equals(propInt64, other.propInt64);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(super.hashCode(), propNumber, propFloat, propDouble, propInteger, propInt32, propInt64);
+    }
+
+}
+====================
+generated-sources\asyncapi\src\gen\java\main\com\asyncapi\models\StringFormats.java
+--------------------
 package com.asyncapi.models;
 
 import java.util.Objects;
@@ -122,125 +248,4 @@ public class StringFormats {
     }
 
 }
-=============
-package com.asyncapi.models;
-
-import java.util.Objects;
-import com.fasterxml.jackson.annotation.JsonProperty;
-
-
-public class NumberFormats {
-
-    @JsonProperty(value = "propNumber", required = false)
-    private Double propNumber;
-    @JsonProperty(value = "propFloat", required = false)
-    private Float propFloat;
-    @JsonProperty(value = "propDouble", required = false)
-    private Double propDouble;
-    @JsonProperty(value = "propInteger", required = false)
-    private Integer propInteger;
-    @JsonProperty(value = "propInt32", required = false)
-    private Integer propInt32;
-    @JsonProperty(value = "propInt64", required = false)
-    private Long propInt64;
-
-    public Double getPropNumber() {
-        return this.propNumber;
-    }
-    public void setPropNumber(Double propNumber) {
-        this.propNumber = propNumber;
-    }
-    public NumberFormats propNumber(Double propNumber) {
-        this.propNumber = propNumber;
-        return this;
-    }
-
-    public Float getPropFloat() {
-        return this.propFloat;
-    }
-    public void setPropFloat(Float propFloat) {
-        this.propFloat = propFloat;
-    }
-    public NumberFormats propFloat(Float propFloat) {
-        this.propFloat = propFloat;
-        return this;
-    }
-
-    public Double getPropDouble() {
-        return this.propDouble;
-    }
-    public void setPropDouble(Double propDouble) {
-        this.propDouble = propDouble;
-    }
-    public NumberFormats propDouble(Double propDouble) {
-        this.propDouble = propDouble;
-        return this;
-    }
-
-    public Integer getPropInteger() {
-        return this.propInteger;
-    }
-    public void setPropInteger(Integer propInteger) {
-        this.propInteger = propInteger;
-    }
-    public NumberFormats propInteger(Integer propInteger) {
-        this.propInteger = propInteger;
-        return this;
-    }
-
-    public Integer getPropInt32() {
-        return this.propInt32;
-    }
-    public void setPropInt32(Integer propInt32) {
-        this.propInt32 = propInt32;
-    }
-    public NumberFormats propInt32(Integer propInt32) {
-        this.propInt32 = propInt32;
-        return this;
-    }
-
-    public Long getPropInt64() {
-        return this.propInt64;
-    }
-    public void setPropInt64(Long propInt64) {
-        this.propInt64 = propInt64;
-    }
-    public NumberFormats propInt64(Long propInt64) {
-        this.propInt64 = propInt64;
-        return this;
-    }
-
-
-    @Override
-    public String toString() {
-        StringBuilder sb = new StringBuilder("NumberFormats{");
-        sb.append("propNumber='").append(propNumber).append("',");
-        sb.append("propFloat='").append(propFloat).append("',");
-        sb.append("propDouble='").append(propDouble).append("',");
-        sb.append("propInteger='").append(propInteger).append("',");
-        sb.append("propInt32='").append(propInt32).append("',");
-        sb.append("propInt64='").append(propInt64).append("',");
-        sb.append("}");
-        return sb.toString();
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        if (!super.equals(o)) return false;
-        NumberFormats other = (NumberFormats) o;
-        return Objects.equals(propNumber, other.propNumber)
-        && Objects.equals(propFloat, other.propFloat)
-        && Objects.equals(propDouble, other.propDouble)
-        && Objects.equals(propInteger, other.propInteger)
-        && Objects.equals(propInt32, other.propInt32)
-        && Objects.equals(propInt64, other.propInt64);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(super.hashCode(), propNumber, propFloat, propDouble, propInteger, propInt32, propInt64);
-    }
-
-}
+====================

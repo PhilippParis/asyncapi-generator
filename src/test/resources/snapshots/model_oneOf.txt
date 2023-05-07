@@ -1,3 +1,5 @@
+generated-sources\asyncapi\src\gen\java\main\com\asyncapi\models\Child1.java
+--------------------
 package com.asyncapi.models;
 
 import java.util.Objects;
@@ -44,7 +46,9 @@ public class Child1 extends Root {
     }
 
 }
-=============
+====================
+generated-sources\asyncapi\src\gen\java\main\com\asyncapi\models\Child2.java
+--------------------
 package com.asyncapi.models;
 
 import java.util.Objects;
@@ -91,7 +95,9 @@ public class Child2 extends Root {
     }
 
 }
-=============
+====================
+generated-sources\asyncapi\src\gen\java\main\com\asyncapi\models\Root.java
+--------------------
 package com.asyncapi.models;
 
 import java.util.Objects;
@@ -111,3 +117,4 @@ public abstract class Root {
 
 
 }
+====================

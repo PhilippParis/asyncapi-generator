@@ -3,6 +3,7 @@ package org.example;
 import org.apache.commons.io.FilenameUtils;
 import org.apache.commons.io.IOUtils;
 import org.example.generator.AsyncApiGenerator;
+import org.example.generator.model.GeneratedFile;
 import org.example.generator.model.Options;
 import org.example.parser.AsyncApiParser;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -15,6 +16,9 @@ import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.Comparator;
+import java.util.List;
+import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -22,32 +26,42 @@ import static org.junit.jupiter.api.Assertions.assertFalse;
 
 class CodeGeneratorSnapshotTest {
 
-    private static final String DELIMITER = "\r\n=============\r\n";
     public static final String SPECS_DIR = "/specs";
     public static final String SNAPSHOTS_DIR = "/snapshots";
 
-    @ParameterizedTest
+    @ParameterizedTest(name = "{0}")
     @MethodSource("provideTestInputs")
-    void generatedCodeShouldMatchSnapshots(final Path pathToSpec, final Path pathToSnapshot) throws IOException {
-        final var spec = IOUtils.toString(pathToSpec.toUri(), StandardCharsets.UTF_8);
-        final var snapshot = IOUtils.toString(pathToSnapshot.toUri(), StandardCharsets.UTF_8);
+    void generatedCodeShouldMatchSnapshots(final String specName, final String snapshotName) throws IOException, URISyntaxException {
+        final var specsDir = Paths.get(getClass().getResource(SPECS_DIR).toURI());
+        final var snapshotsDir = Paths.get(getClass().getResource(SNAPSHOTS_DIR).toURI());
+        final var spec = IOUtils.toString(Path.of(specsDir.toString(), specName).toUri(), StandardCharsets.UTF_8);
+        final var snapshot = IOUtils.toString(Path.of(snapshotsDir.toString(), snapshotName).toUri(), StandardCharsets.UTF_8);
 
         final var generator = new AsyncApiGenerator(AsyncApiParser.parse(spec), new Options());
-        generator.exec();
+        final var files = generator.exec() .stream()
+                                            .sorted(Comparator.comparing(GeneratedFile::getPath))
+                                            .collect(Collectors.toList());
 
-        final var models = generator.generateModels();
-        assertFalse(models.isEmpty());
-        assertEquals(snapshot, String.join(DELIMITER, models));
+        assertFalse(files.isEmpty());
+        assertEquals(snapshot, createSnapshot(files));
     }
 
     private static Stream<Arguments> provideTestInputs() throws IOException, URISyntaxException {
         final var specsDir = Paths.get(CodeGeneratorSnapshotTest.class.getResource(SPECS_DIR).toURI());
-        final var snapshotsDir = Paths.get(CodeGeneratorSnapshotTest.class.getResource(SNAPSHOTS_DIR).toURI());
         return Files.list(specsDir)
                 .map(i -> FilenameUtils.removeExtension(i.getFileName().toString()))
-                .map(i -> Arguments.of(
-                        Paths.get(specsDir.toString(), i + ".yml"),
-                        Paths.get(snapshotsDir.toString(), i + ".txt")));
+                .map(i -> Arguments.of(i + ".yml", i + ".txt"));
+    }
+
+    private String createSnapshot(List<GeneratedFile> files) {
+        final var sb = new StringBuilder();
+        for (final var file : files) {
+            sb.append(file.getPath().toString()).append("\r\n");
+            sb.append("--------------------\r\n");
+            sb.append(file.getContent()).append("\r\n");
+            sb.append("====================\r\n");
+        }
+        return sb.toString();
     }
 
 }

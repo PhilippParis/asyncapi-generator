@@ -1,3 +1,5 @@
+generated-sources\asyncapi\src\gen\java\main\com\asyncapi\models\Item.java
+--------------------
 package com.asyncapi.models;
 
 import java.util.Objects;
@@ -44,7 +46,9 @@ public class Item {
     }
 
 }
-=============
+====================
+generated-sources\asyncapi\src\gen\java\main\com\asyncapi\models\Root.java
+--------------------
 package com.asyncapi.models;
 
 import java.util.Objects;
@@ -123,3 +127,4 @@ public class Root {
     }
 
 }
+====================
