@@ -1,0 +1,40 @@
+asyncapi: 2.6.0
+info:
+  title: service
+  version: 1.0.0
+channels: {}
+components:
+  messages:
+    MessageWithPrimitiveReference:
+      payload:
+        $ref: '#/components/schemas/PrimitivePayload'
+    MessageWithObjectReference:
+      payload:
+        $ref: '#/components/schemas/ObjectPayload1'
+    MessageWithObjectPayload:
+      payload:
+        type: object
+        properties:
+          prop:
+            type: integer
+    MessageWithPrimitivePayload:
+      payload:
+        type: integer
+    MessageOneOf:
+      payload:
+        oneOf:
+          - $ref: '#/components/schemas/ObjectPayload1'
+          - $ref: '#/components/schemas/ObjectPayload2'
+  schemas:
+    PrimitivePayload:
+      type: string
+    ObjectPayload1:
+      type: object
+      properties:
+        prop1:
+          type: integer
+    ObjectPayload2:
+      type: object
+      properties:
+        prop2:
+          type: integer

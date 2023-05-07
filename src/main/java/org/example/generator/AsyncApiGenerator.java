@@ -8,6 +8,7 @@ import org.example.generator.model.Options;
 import org.example.generator.processor.*;
 import org.example.generator.types.Type;
 import org.example.parser.model.AsyncApiDocument;
+import org.example.parser.model.Message;
 import org.example.parser.model.Schema;
 import org.example.util.PathUtils;
 import org.example.util.Utils;
@@ -38,7 +39,10 @@ public class AsyncApiGenerator {
 
     public List<GeneratedFile> exec() {
         for (final var entry : document.getComponents().getSchemas().entrySet()) {
-            process(entry.getKey(), entry.getValue());
+            processSchema(entry.getKey(), entry.getValue());
+        }
+        for (final var entry : document.getComponents().getMessages().entrySet()) {
+            processMessage(entry.getKey(), entry.getValue());
         }
         return generateModels();
     }
@@ -64,13 +68,22 @@ public class AsyncApiGenerator {
         }
     }
 
-    public Type process(final String id, final Schema schema) {
+    public Type processSchema(final String id, final Schema schema) {
         for (final var processor : processors) {
             if (processor.check(schema)) {
                 return processor.process(this, id, schema);
             }
         }
         throw new IllegalStateException("failed to process schema: " + schema);
+    }
+
+    private void processMessage(final String id, final Message message) {
+        if (message.getPayload() != null && message.getPayload().getRef() == null) {
+            processSchema(id, message.getPayload());
+        }
+        if (message.getHeaders() != null && message.getHeaders().getRef() == null) {
+            processSchema(id + "Headers", message.getHeaders());
+        }
     }
 
     public Schema getSchemaByRef(final String ref) {

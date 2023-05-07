@@ -1,11 +1,11 @@
 package org.example.generator.processor;
 
-import org.example.generator.Repository;
-import org.example.parser.model.Schema;
-import org.example.util.Utils;
 import org.example.generator.AsyncApiGenerator;
+import org.example.generator.Repository;
 import org.example.generator.types.ObjectType;
 import org.example.generator.types.Type;
+import org.example.parser.model.Schema;
+import org.example.util.Utils;
 
 import java.util.Objects;
 
@@ -29,7 +29,7 @@ public class ObjectsProcessor extends Processor {
         }
         final var model = repository.put(id, new ObjectType(schema, id));
         for (final var property : schema.getProperties().entrySet()) {
-            model.addProperty(property.getKey(), generator.process(Utils.getTypeId(property.getValue()), property.getValue()));
+            model.addProperty(property.getKey(), generator.processSchema(Utils.getTypeId(property.getValue()), property.getValue()));
         }
         return model;
     }

@@ -1,0 +1,22 @@
+asyncapi: 2.6.0
+info:
+  title: service
+  version: 1.0.0
+channels: {}
+components:
+  messages:
+    MessageWithHeadersReference:
+      headers:
+        $ref: '#/components/schemas/Headers'
+    Message:
+      headers:
+        type: object
+        properties:
+          prop2:
+            type: integer
+  schemas:
+    Headers:
+      type: object
+      properties:
+        prop1:
+          type: integer

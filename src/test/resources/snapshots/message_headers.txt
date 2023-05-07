@@ -1,0 +1,98 @@
+generated-sources\asyncapi\src\gen\java\main\com\asyncapi\models\Headers.java
+--------------------
+package com.asyncapi.models;
+
+import java.util.Objects;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+
+public class Headers {
+
+    @JsonProperty(value = "prop1", required = false)
+    private Integer prop1;
+
+    public Integer getProp1() {
+        return this.prop1;
+    }
+    public void setProp1(Integer prop1) {
+        this.prop1 = prop1;
+    }
+    public Headers prop1(Integer prop1) {
+        this.prop1 = prop1;
+        return this;
+    }
+
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder("Headers{");
+        sb.append("prop1='").append(prop1).append("',");
+        sb.append("}");
+        return sb.toString();
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        if (!super.equals(o)) return false;
+        Headers other = (Headers) o;
+        return Objects.equals(prop1, other.prop1);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(super.hashCode(), prop1);
+    }
+
+}
+====================
+generated-sources\asyncapi\src\gen\java\main\com\asyncapi\models\MessageHeaders.java
+--------------------
+package com.asyncapi.models;
+
+import java.util.Objects;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+
+public class MessageHeaders {
+
+    @JsonProperty(value = "prop2", required = false)
+    private Integer prop2;
+
+    public Integer getProp2() {
+        return this.prop2;
+    }
+    public void setProp2(Integer prop2) {
+        this.prop2 = prop2;
+    }
+    public MessageHeaders prop2(Integer prop2) {
+        this.prop2 = prop2;
+        return this;
+    }
+
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder("MessageHeaders{");
+        sb.append("prop2='").append(prop2).append("',");
+        sb.append("}");
+        return sb.toString();
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        if (!super.equals(o)) return false;
+        MessageHeaders other = (MessageHeaders) o;
+        return Objects.equals(prop2, other.prop2);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(super.hashCode(), prop2);
+    }
+
+}
+====================
