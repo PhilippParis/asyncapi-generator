@@ -1,10 +1,9 @@
 package org.example.generator.processor;
 
-import org.apache.commons.lang3.StringUtils;
-import org.example.parser.model.Schema;
 import org.example.generator.AsyncApiGenerator;
 import org.example.generator.types.Primitives;
 import org.example.generator.types.Type;
+import org.example.parser.model.Schema;
 
 import java.util.Set;
 
@@ -39,7 +38,10 @@ public class PrimitivesProcessor extends Processor {
         if ("float".equals(schema.getFormat())) {
             return new Primitives.FloatType(schema);
         }
-        return new Primitives.DoubleType(schema);
+        if ("double".equals(schema.getFormat())) {
+            return new Primitives.DoubleType(schema);
+        }
+        return new Primitives.BigDecimalType(schema);
     }
 
     private Type processString(final Schema schema) {

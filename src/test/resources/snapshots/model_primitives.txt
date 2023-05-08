@@ -5,11 +5,12 @@ package com.asyncapi.models;
 import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+import java.math.BigDecimal;
 
 public class NumberFormats {
 
     @JsonProperty(value = "propNumber", required = false)
-    private Double propNumber;
+    private BigDecimal propNumber;
     @JsonProperty(value = "propFloat", required = false)
     private Float propFloat;
     @JsonProperty(value = "propDouble", required = false)
@@ -21,13 +22,13 @@ public class NumberFormats {
     @JsonProperty(value = "propInt64", required = false)
     private Long propInt64;
 
-    public Double getPropNumber() {
+    public BigDecimal getPropNumber() {
         return this.propNumber;
     }
-    public void setPropNumber(Double propNumber) {
+    public void setPropNumber(BigDecimal propNumber) {
         this.propNumber = propNumber;
     }
-    public NumberFormats propNumber(Double propNumber) {
+    public NumberFormats propNumber(BigDecimal propNumber) {
         this.propNumber = propNumber;
         return this;
     }

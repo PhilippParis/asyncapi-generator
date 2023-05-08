@@ -2,7 +2,6 @@ package org.example.generator.types;
 
 import org.example.parser.model.Schema;
 
-import java.util.Optional;
 import java.util.Set;
 
 public class Primitives {
@@ -77,6 +76,20 @@ public class Primitives {
         @Override
         public Set<String> getImports() {
             return Set.of("java.util.UUID");
+        }
+    }
+
+    public static class BigDecimalType extends Type {
+        public BigDecimalType(Schema schema) {
+            super(schema);
+        }
+        @Override
+        public String getTypeName() {
+            return "BigDecimal";
+        }
+        @Override
+        public Set<String> getImports() {
+            return Set.of("java.math.BigDecimal");
         }
     }
 
