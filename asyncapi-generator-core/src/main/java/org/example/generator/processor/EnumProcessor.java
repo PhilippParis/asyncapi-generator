@@ -1,10 +1,10 @@
 package org.example.generator.processor;
 
-import org.example.parser.model.Schema;
-import org.example.generator.types.EnumType;
 import org.example.generator.AsyncApiGenerator;
 import org.example.generator.Repository;
+import org.example.generator.types.EnumType;
 import org.example.generator.types.Type;
+import org.example.parser.model.Schema;
 
 public class EnumProcessor extends Processor {
 

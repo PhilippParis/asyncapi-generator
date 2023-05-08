@@ -3,7 +3,10 @@ package org.example.generator.types;
 import org.example.generator.model.ModelProperty;
 import org.example.parser.model.Schema;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Optional;
+import java.util.Set;
 import java.util.stream.Collectors;
 
 public class ObjectType extends Type {

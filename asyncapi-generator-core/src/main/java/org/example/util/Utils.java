@@ -1,7 +1,7 @@
 package org.example.util;
 
-import org.example.parser.model.Schema;
 import org.example.generator.AnonymousTypeName;
+import org.example.parser.model.Schema;
 
 import java.nio.file.Path;
 
