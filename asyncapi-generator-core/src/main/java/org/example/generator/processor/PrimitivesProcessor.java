@@ -18,13 +18,18 @@ public class PrimitivesProcessor extends Processor {
 
     @Override
     public Type process(final AsyncApiGenerator generator, final String id, final Schema schema) {
-        return switch (schema.getType()) {
-            case "integer" -> processInteger(schema);
-            case "string" -> processString(schema);
-            case "number" -> processNumber(schema);
-            case "boolean" -> new Primitives.BooleanType(schema);
-            default -> throw new IllegalArgumentException("primitive type not supported: " + schema.getType());
-        };
+        switch (schema.getType()) {
+            case "integer":
+                return processInteger(schema);
+            case "string":
+                return processString(schema);
+            case "number":
+                return processNumber(schema);
+            case "boolean":
+                return new Primitives.BooleanType(schema);
+            default:
+                throw new IllegalArgumentException("primitive type not supported: " + schema.getType());
+        }
     }
 
     private Type processInteger(final Schema schema) {
@@ -48,12 +53,16 @@ public class PrimitivesProcessor extends Processor {
         if (schema.getFormat() == null) {
             return new Primitives.StringType(schema);
         }
-        return switch (schema.getFormat()) {
-            case "uuid" -> new Primitives.UUIDType(schema);
-            case "date" -> new Primitives.LocalDateType(schema);
-            case "date-time" -> new Primitives.OffsetDateTime(schema);
-            default -> new Primitives.StringType(schema);
-        };
+        switch (schema.getFormat()) {
+            case "uuid":
+                return new Primitives.UUIDType(schema);
+            case "date":
+                return new Primitives.LocalDateType(schema);
+            case "date-time":
+                return new Primitives.OffsetDateTime(schema);
+            default:
+                return new Primitives.StringType(schema);
+        }
     }
 
 }
