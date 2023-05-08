@@ -2,6 +2,7 @@ package org.example.generator;
 
 import com.samskivert.mustache.Mustache;
 import org.apache.commons.io.IOUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.example.generator.lambdas.MustacheLambda;
 import org.example.generator.model.GeneratedFile;
 import org.example.generator.model.Options;
@@ -71,7 +72,7 @@ public class AsyncApiGenerator {
     public Type processSchema(final String id, final Schema schema) {
         for (final var processor : processors) {
             if (processor.check(schema)) {
-                return processor.process(this, id, schema);
+                return processor.process(this, StringUtils.appendIfMissing(id, options.getModelNameSuffix()), schema);
             }
         }
         throw new IllegalStateException("failed to process schema: " + schema);

@@ -3,6 +3,7 @@ package org.example.generator.model;
 public class Options {
 
     private String modelPackage = "com.asyncapi.models";
+    private String modelNameSuffix = "";
     private String outputDir = "generated-sources/asyncapi";
     private String javaDir = "src/gen/java/main";
 
@@ -28,5 +29,13 @@ public class Options {
 
     public void setJavaDir(String javaDir) {
         this.javaDir = javaDir;
+    }
+
+    public String getModelNameSuffix() {
+        return modelNameSuffix;
+    }
+
+    public void setModelNameSuffix(String modelNameSuffix) {
+        this.modelNameSuffix = modelNameSuffix;
     }
 }
