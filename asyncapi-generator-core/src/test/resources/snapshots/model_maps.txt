@@ -60,11 +60,11 @@ import java.util.UUID;
 public class Root {
 
     @JsonProperty(value = "uuidMap", required = false)
-    private HashMap<UUID> uuidMap;
+    private HashMap<UUID> uuidMap = new HashMap<UUID>();
     @JsonProperty(value = "integerMap", required = false)
-    private HashMap<Integer> integerMap;
+    private HashMap<Integer> integerMap = new HashMap<Integer>();
     @JsonProperty(value = "objectMap", required = false)
-    private HashMap<Item> objectMap;
+    private HashMap<Item> objectMap = new HashMap<Item>();
 
     public HashMap<UUID> getUuidMap() {
         return this.uuidMap;

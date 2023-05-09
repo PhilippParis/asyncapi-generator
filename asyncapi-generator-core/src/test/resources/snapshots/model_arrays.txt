@@ -60,11 +60,11 @@ import java.util.ArrayList;
 public class Root {
 
     @JsonProperty(value = "uuidArray", required = false)
-    private ArrayList<UUID> uuidArray;
+    private ArrayList<UUID> uuidArray = new ArrayList<UUID>();
     @JsonProperty(value = "integerArray", required = false)
-    private ArrayList<Integer> integerArray;
+    private ArrayList<Integer> integerArray = new ArrayList<Integer>();
     @JsonProperty(value = "objectArray", required = false)
-    private ArrayList<Item> objectArray;
+    private ArrayList<Item> objectArray = new ArrayList<Item>();
 
     public ArrayList<UUID> getUuidArray() {
         return this.uuidArray;

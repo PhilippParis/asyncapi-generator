@@ -3,6 +3,7 @@ package org.example.generator.types;
 import org.example.parser.model.Schema;
 
 import java.util.HashSet;
+import java.util.Optional;
 import java.util.Set;
 
 public class Collections {
@@ -26,6 +27,11 @@ public class Collections {
         public String getTypeName() {
             return "ArrayList<" + child.getTypeName() + ">";
         }
+
+        @Override
+        public Optional<String> getInit() {
+            return Optional.of("new ArrayList<" + child.getTypeName() + ">()");
+        }
     }
 
     public static class MapType extends Type {
@@ -46,6 +52,11 @@ public class Collections {
         @Override
         public String getTypeName() {
             return "HashMap<" + child.getTypeName() + ">";
+        }
+
+        @Override
+        public Optional<String> getInit() {
+            return Optional.of("new HashMap<" + child.getTypeName() + ">()");
         }
     }
 

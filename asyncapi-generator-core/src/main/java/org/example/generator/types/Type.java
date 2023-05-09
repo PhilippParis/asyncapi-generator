@@ -15,6 +15,10 @@ public abstract class Type {
 
     public abstract String getTypeName();
 
+    public Optional<String> getInit() {
+        return Optional.empty();
+    }
+
     public String getId() {
         return null;
     }

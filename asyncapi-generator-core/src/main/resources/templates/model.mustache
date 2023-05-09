@@ -24,7 +24,7 @@ public {{#type.properties.empty}}abstract {{/type.properties.empty}}class {{type
 {{! class properties }}
 {{#type.properties}}
     @JsonProperty(value = "{{propertyId}}", required = {{required}})
-    private {{propertyType.typeName}} {{propertyName}};
+    private {{propertyType.typeName}} {{propertyName}}{{#propertyType.init.present}} = {{propertyType.init.get}}{{/propertyType.init.present}};
 {{/type.properties}}
 
 {{! getter / setters }}
