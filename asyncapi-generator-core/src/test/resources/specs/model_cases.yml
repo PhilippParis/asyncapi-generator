@@ -1,0 +1,18 @@
+asyncapi: 2.6.0
+info:
+  title: service
+  version: 1.0.0
+channels: {}
+components:
+  schemas:
+    SomeClass:
+      type: object
+      properties:
+        camelCase:
+          type: integer
+        PascalCase:
+          type: integer
+        snake_case:
+          type: integer
+        kebab-case:
+          type: integer

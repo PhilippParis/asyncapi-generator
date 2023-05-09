@@ -1,0 +1,94 @@
+generated-sources\asyncapi\src\gen\java\main\com\asyncapi\models\SomeClass.java
+--------------------
+package com.asyncapi.models;
+
+import java.util.Objects;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+
+public class SomeClass {
+
+    @JsonProperty(value = "camelCase", required = false)
+    private Integer camelCase;
+    @JsonProperty(value = "PascalCase", required = false)
+    private Integer pascalCase;
+    @JsonProperty(value = "snake_case", required = false)
+    private Integer snakeCase;
+    @JsonProperty(value = "kebab-case", required = false)
+    private Integer kebabCase;
+
+    public Integer getCamelCase() {
+        return this.camelCase;
+    }
+    public void setCamelCase(Integer camelCase) {
+        this.camelCase = camelCase;
+    }
+    public SomeClass camelCase(Integer camelCase) {
+        this.camelCase = camelCase;
+        return this;
+    }
+
+    public Integer getPascalCase() {
+        return this.pascalCase;
+    }
+    public void setPascalCase(Integer pascalCase) {
+        this.pascalCase = pascalCase;
+    }
+    public SomeClass pascalCase(Integer pascalCase) {
+        this.pascalCase = pascalCase;
+        return this;
+    }
+
+    public Integer getSnakeCase() {
+        return this.snakeCase;
+    }
+    public void setSnakeCase(Integer snakeCase) {
+        this.snakeCase = snakeCase;
+    }
+    public SomeClass snakeCase(Integer snakeCase) {
+        this.snakeCase = snakeCase;
+        return this;
+    }
+
+    public Integer getKebabCase() {
+        return this.kebabCase;
+    }
+    public void setKebabCase(Integer kebabCase) {
+        this.kebabCase = kebabCase;
+    }
+    public SomeClass kebabCase(Integer kebabCase) {
+        this.kebabCase = kebabCase;
+        return this;
+    }
+
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder("SomeClass{");
+        sb.append("camelCase='").append(camelCase).append("',");
+        sb.append("pascalCase='").append(pascalCase).append("',");
+        sb.append("snakeCase='").append(snakeCase).append("',");
+        sb.append("kebabCase='").append(kebabCase).append("',");
+        sb.append("}");
+        return sb.toString();
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        if (!super.equals(o)) return false;
+        SomeClass other = (SomeClass) o;
+        return Objects.equals(camelCase, other.camelCase)
+        && Objects.equals(pascalCase, other.pascalCase)
+        && Objects.equals(snakeCase, other.snakeCase)
+        && Objects.equals(kebabCase, other.kebabCase);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(super.hashCode(), camelCase, pascalCase, snakeCase, kebabCase);
+    }
+
+}
+====================

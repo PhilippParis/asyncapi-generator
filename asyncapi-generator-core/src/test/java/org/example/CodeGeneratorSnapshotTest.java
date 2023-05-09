@@ -2,6 +2,7 @@ package org.example;
 
 import org.apache.commons.io.FilenameUtils;
 import org.apache.commons.io.IOUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.example.generator.AsyncApiGenerator;
 import org.example.generator.model.GeneratedFile;
 import org.example.generator.model.Options;
@@ -43,7 +44,7 @@ class CodeGeneratorSnapshotTest {
                                             .collect(Collectors.toList());
 
         assertFalse(files.isEmpty());
-        assertEquals(snapshot, createSnapshot(files));
+        assertEquals(snapshot.replace(StringUtils.CR, ""), createSnapshot(files).replace(StringUtils.CR, ""));
     }
 
     private static Stream<Arguments> provideTestInputs() throws IOException, URISyntaxException {

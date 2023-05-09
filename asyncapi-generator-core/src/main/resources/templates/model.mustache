@@ -23,7 +23,7 @@ public {{#type.properties.empty}}abstract {{/type.properties.empty}}class {{type
 
 {{! class properties }}
 {{#type.properties}}
-    @JsonProperty(value = "{{propertyName}}", required = {{required}})
+    @JsonProperty(value = "{{propertyId}}", required = {{required}})
     private {{propertyType.typeName}} {{propertyName}};
 {{/type.properties}}
 

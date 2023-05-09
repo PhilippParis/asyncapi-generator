@@ -94,6 +94,7 @@ public class AsyncApiGenerator {
     private Map<String, Object> getTemplateContext(final Type type) {
         return Map.of(
                 "PascalCase", new MustacheLambda.PascalCase(),
+                "CamelCase", new MustacheLambda.CamelCase(),
                 "options", options,
                 "type", type);
     }

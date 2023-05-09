@@ -16,5 +16,12 @@ public class MustacheLambda {
         }
     }
 
+    public static class CamelCase implements Mustache.Lambda {
+        @Override
+        public void execute(Template.Fragment fragment, Writer out) throws IOException {
+            out.write(CaseUtils.toCamelCase(fragment.execute()));
+        }
+    }
+
 
 }
