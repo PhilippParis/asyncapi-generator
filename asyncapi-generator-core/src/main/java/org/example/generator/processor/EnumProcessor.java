@@ -21,6 +21,6 @@ public class EnumProcessor extends Processor {
 
     @Override
     public Type process(AsyncApiGenerator generator, String id, Schema schema) {
-        return repository.put(id, new EnumType(schema, id));
+        return repository.put(id, new EnumType(schema, id, generator.getOptions()));
     }
 }

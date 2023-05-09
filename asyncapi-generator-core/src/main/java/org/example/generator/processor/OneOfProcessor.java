@@ -22,7 +22,7 @@ public class OneOfProcessor extends Processor {
 
     @Override
     public Type process(AsyncApiGenerator generator, String id, Schema schema) {
-        final var model = repository.put(id, new ObjectType(schema, id));
+        final var model = repository.put(id, new ObjectType(schema, id, generator.getOptions()));
         for (final var oneOf : schema.getOneOf()) {
             model.addChild(generator.processSchema(Utils.getTypeId(oneOf), oneOf));
         }

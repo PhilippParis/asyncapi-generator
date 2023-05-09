@@ -1,5 +1,7 @@
 package org.example.generator.types;
 
+import org.apache.commons.lang3.StringUtils;
+import org.example.generator.model.Options;
 import org.example.parser.model.Schema;
 import org.example.util.CaseUtils;
 
@@ -9,16 +11,23 @@ import java.util.stream.Collectors;
 
 public class EnumType extends Type {
 
-    private String id;
+    private final String id;
+    private final Options options;
 
-    public EnumType(final Schema schema, final String id) {
+    public EnumType(final Schema schema, final String id, final Options options) {
         super(schema);
         this.id = id;
+        this.options = options;
     }
 
     @Override
     public String getTypeName() {
-        return CaseUtils.toPascalCase(id);
+        return StringUtils.appendIfMissing(CaseUtils.toPascalCase(id), options.getModelNameSuffix());
+    }
+
+    @Override
+    public String getId() {
+        return id;
     }
 
     public List<String> getEnumValues() {

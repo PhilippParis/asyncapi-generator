@@ -27,7 +27,7 @@ public class ObjectsProcessor extends Processor {
         if (repository.contains(id)) {
             return repository.get(id);
         }
-        final var model = repository.put(id, new ObjectType(schema, id));
+        final var model = repository.put(id, new ObjectType(schema, id, generator.getOptions()));
         for (final var property : schema.getProperties().entrySet()) {
             model.addProperty(property.getKey(), generator.processSchema(Utils.getTypeId(property.getValue()), property.getValue()));
         }

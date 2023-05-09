@@ -1,0 +1,31 @@
+asyncapi: 2.6.0
+info:
+  title: service
+  version: 1.0.0
+channels: {}
+components:
+  schemas:
+    SimpleClass1:
+      type: object
+      properties:
+        prop1:
+          type: number
+    SimpleClass2:
+      type: object
+      properties:
+        other:
+          $ref: '#/components/schemas/SimpleClass1'
+    SimpleEnum:
+      type: string
+      enum: [ONE, TWO]
+    RootOneOf:
+      oneOf:
+        - $ref: '#/components/schemas/SimpleClass1'
+        - $ref: '#/components/schemas/SimpleClass2'
+    AllOf:
+      allOf:
+        - $ref: '#/components/schemas/SimpleClass1'
+        - type: object
+          properties:
+            prop:
+              type: number

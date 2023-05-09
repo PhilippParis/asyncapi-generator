@@ -15,6 +15,10 @@ public abstract class Type {
 
     public abstract String getTypeName();
 
+    public String getId() {
+        return null;
+    }
+
     public Set<String> getImports() {
         return Set.of();
     }

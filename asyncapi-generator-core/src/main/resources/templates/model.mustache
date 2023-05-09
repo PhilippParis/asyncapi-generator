@@ -15,7 +15,7 @@ import {{.}};
 @JsonTypeInfo(use = JsonTypeInfo.Id.NAME, include = JsonTypeInfo.As.PROPERTY, property = "{{type.discriminator}}")
 @JsonSubTypes({
 {{#type.children}}
-    @JsonSubTypes.Type(value = {{typeName}}.class, name = "{{typeName}}"){{^-last}},{{/-last}}
+    @JsonSubTypes.Type(value = {{typeName}}.class, name = "{{id}}"){{^-last}},{{/-last}}
 {{/type.children}}
 })
 {{/type.children.empty}}

@@ -1,0 +1,213 @@
+generated-sources\asyncapi\src\gen\java\main\com\asyncapi\models\AllOfDto.java
+--------------------
+package com.asyncapi.models;
+
+import java.util.Objects;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+import java.math.BigDecimal;
+
+public class AllOfDto extends SimpleClass1Dto {
+
+    @JsonProperty(value = "prop", required = false)
+    private BigDecimal prop;
+
+    public BigDecimal getProp() {
+        return this.prop;
+    }
+    public void setProp(BigDecimal prop) {
+        this.prop = prop;
+    }
+    public AllOfDto prop(BigDecimal prop) {
+        this.prop = prop;
+        return this;
+    }
+
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder("AllOfDto{");
+        sb.append("prop='").append(prop).append("',");
+        sb.append("}");
+        return sb.toString();
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        if (!super.equals(o)) return false;
+        AllOfDto other = (AllOfDto) o;
+        return Objects.equals(prop, other.prop);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(super.hashCode(), prop);
+    }
+
+}
+====================
+generated-sources\asyncapi\src\gen\java\main\com\asyncapi\models\RootOneOfDto.java
+--------------------
+package com.asyncapi.models;
+
+import java.util.Objects;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonTypeInfo;
+import com.fasterxml.jackson.annotation.JsonSubTypes;
+
+
+@JsonTypeInfo(use = JsonTypeInfo.Id.NAME, include = JsonTypeInfo.As.PROPERTY, property = "@class")
+@JsonSubTypes({
+    @JsonSubTypes.Type(value = SimpleClass1Dto.class, name = "SimpleClass1"),
+    @JsonSubTypes.Type(value = SimpleClass2Dto.class, name = "SimpleClass2")
+})
+public abstract class RootOneOfDto {
+
+
+
+
+}
+====================
+generated-sources\asyncapi\src\gen\java\main\com\asyncapi\models\SimpleClass1Dto.java
+--------------------
+package com.asyncapi.models;
+
+import java.util.Objects;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonTypeInfo;
+import com.fasterxml.jackson.annotation.JsonSubTypes;
+
+import java.math.BigDecimal;
+
+@JsonTypeInfo(use = JsonTypeInfo.Id.NAME, include = JsonTypeInfo.As.PROPERTY, property = "@class")
+@JsonSubTypes({
+    @JsonSubTypes.Type(value = AllOfDto.class, name = "AllOf")
+})
+public class SimpleClass1Dto extends RootOneOfDto {
+
+    @JsonProperty(value = "prop1", required = false)
+    private BigDecimal prop1;
+
+    public BigDecimal getProp1() {
+        return this.prop1;
+    }
+    public void setProp1(BigDecimal prop1) {
+        this.prop1 = prop1;
+    }
+    public SimpleClass1Dto prop1(BigDecimal prop1) {
+        this.prop1 = prop1;
+        return this;
+    }
+
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder("SimpleClass1Dto{");
+        sb.append("prop1='").append(prop1).append("',");
+        sb.append("}");
+        return sb.toString();
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        if (!super.equals(o)) return false;
+        SimpleClass1Dto other = (SimpleClass1Dto) o;
+        return Objects.equals(prop1, other.prop1);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(super.hashCode(), prop1);
+    }
+
+}
+====================
+generated-sources\asyncapi\src\gen\java\main\com\asyncapi\models\SimpleClass2Dto.java
+--------------------
+package com.asyncapi.models;
+
+import java.util.Objects;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+import java.math.BigDecimal;
+
+public class SimpleClass2Dto extends RootOneOfDto {
+
+    @JsonProperty(value = "other", required = false)
+    private SimpleClass1Dto other;
+
+    public SimpleClass1Dto getOther() {
+        return this.other;
+    }
+    public void setOther(SimpleClass1Dto other) {
+        this.other = other;
+    }
+    public SimpleClass2Dto other(SimpleClass1Dto other) {
+        this.other = other;
+        return this;
+    }
+
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder("SimpleClass2Dto{");
+        sb.append("other='").append(other).append("',");
+        sb.append("}");
+        return sb.toString();
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        if (!super.equals(o)) return false;
+        SimpleClass2Dto other = (SimpleClass2Dto) o;
+        return Objects.equals(other, other.other);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(super.hashCode(), other);
+    }
+
+}
+====================
+generated-sources\asyncapi\src\gen\java\main\com\asyncapi\models\SimpleEnumDto.java
+--------------------
+package com.asyncapi.models;
+
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonValue;
+
+public enum SimpleEnumDto {
+
+    ONE("ONE"),
+    TWO("TWO"),
+    ;
+
+    private final String value;
+
+    SimpleEnumDto(final String value) {
+        this.value = value;
+    }
+
+    @JsonValue
+    public String getValue() {
+        return value;
+    }
+
+    @JsonCreator
+    public static SimpleEnumDto fromValue(String value) {
+        for (final SimpleEnumDto i : values()) {
+            if (i.value.equals(value)) {
+                return i;
+            }
+        }
+        throw new IllegalStateException("Unexpected value '" + value + "'");
+    }
+}
+====================

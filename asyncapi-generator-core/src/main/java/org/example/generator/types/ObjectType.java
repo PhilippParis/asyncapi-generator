@@ -1,7 +1,10 @@
 package org.example.generator.types;
 
+import org.apache.commons.lang3.StringUtils;
 import org.example.generator.model.ModelProperty;
+import org.example.generator.model.Options;
 import org.example.parser.model.Schema;
+import org.example.util.CaseUtils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -14,12 +17,14 @@ public class ObjectType extends Type {
     private final String id;
     private final List<Type> children = new ArrayList<>();
     private final List<ModelProperty> properties = new ArrayList<>();
+    private final Options options;
     private Type parent;
 
 
-    public ObjectType(final Schema schema, final String id) {
+    public ObjectType(final Schema schema, final String id, final Options options) {
         super(schema);
         this.id = id;
+        this.options = options;
     }
 
     public void addProperty(final String name, final Type objectType) {
@@ -48,6 +53,11 @@ public class ObjectType extends Type {
 
     @Override
     public String getTypeName() {
+        return StringUtils.appendIfMissing(CaseUtils.toPascalCase(id), options.getModelNameSuffix());
+    }
+
+    @Override
+    public String getId() {
         return id;
     }
 
