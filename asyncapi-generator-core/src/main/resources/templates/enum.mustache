@@ -23,7 +23,7 @@ public enum {{type.typeName}} {
 
     @JsonCreator
     public static {{type.typeName}} fromValue(String value) {
-        for (final var i : values()) {
+        for (final {{type.typeName}} i : values()) {
             if (i.value.equals(value)) {
                 return i;
             }

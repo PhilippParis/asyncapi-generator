@@ -25,7 +25,7 @@ public enum TestEnum1 {
 
     @JsonCreator
     public static TestEnum1 fromValue(String value) {
-        for (final var i : values()) {
+        for (final TestEnum1 i : values()) {
             if (i.value.equals(value)) {
                 return i;
             }
@@ -61,7 +61,7 @@ public enum TestEnum2 {
 
     @JsonCreator
     public static TestEnum2 fromValue(String value) {
-        for (final var i : values()) {
+        for (final TestEnum2 i : values()) {
             if (i.value.equals(value)) {
                 return i;
             }
@@ -96,7 +96,7 @@ public enum TestEnum3 {
 
     @JsonCreator
     public static TestEnum3 fromValue(String value) {
-        for (final var i : values()) {
+        for (final TestEnum3 i : values()) {
             if (i.value.equals(value)) {
                 return i;
             }
@@ -131,7 +131,7 @@ public enum TestEnum4 {
 
     @JsonCreator
     public static TestEnum4 fromValue(String value) {
-        for (final var i : values()) {
+        for (final TestEnum4 i : values()) {
             if (i.value.equals(value)) {
                 return i;
             }
