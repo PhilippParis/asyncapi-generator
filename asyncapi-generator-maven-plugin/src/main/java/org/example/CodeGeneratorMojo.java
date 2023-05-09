@@ -11,6 +11,8 @@ import org.apache.maven.project.MavenProject;
 import org.example.generator.AsyncApiGenerator;
 import org.example.generator.model.Options;
 import org.example.parser.AsyncApiParser;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.io.File;
 import java.io.IOException;
@@ -19,6 +21,8 @@ import java.nio.file.Path;
 
 @Mojo(name = "generate", defaultPhase = LifecyclePhase.GENERATE_SOURCES)
 public class CodeGeneratorMojo extends AbstractMojo {
+
+    private final Logger LOGGER = LoggerFactory.getLogger(CodeGeneratorMojo.class);
 
     @Parameter(name = "inputSpec", required = true)
     private String inputSpec;
@@ -53,9 +57,10 @@ public class CodeGeneratorMojo extends AbstractMojo {
             if (asyncapiDir.exists() && asyncapiDir.isDirectory()) {
                 FileUtils.cleanDirectory(asyncapiDir);
             }
-            for (final var file : generatedFiles) {
-                FileUtils.writeStringToFile(new File(targetDir, file.getPath().toString()),
-                        file.getContent(), StandardCharsets.UTF_8);
+            for (final var generatedFile : generatedFiles) {
+                final var file = new File(targetDir, generatedFile.getPath().toString());
+                LOGGER.info("writing file " + file.getAbsolutePath());
+                FileUtils.writeStringToFile(file, generatedFile.getContent(), StandardCharsets.UTF_8);
             }
         } catch (IOException e) {
             throw new MojoExecutionException("code generation failed", e);
