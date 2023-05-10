@@ -2,8 +2,7 @@ name: release version
 
 on:
   push:
-    branches:
-      - master
+    branches: [ "master" ]
 
 jobs:
   build:
@@ -27,3 +26,4 @@ jobs:
           git-release-bot-name: "GitHub Actions"
           git-release-bot-email: "actions@github.com"
           ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
+          maven-servers: '[{"id": "github", "username": "${{ github.actor }}", "password": "${{ github.token }}"}]'
