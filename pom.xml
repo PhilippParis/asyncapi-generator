@@ -14,8 +14,23 @@
         <module>asyncapi-generator-maven-plugin</module>
     </modules>
 
+    <scm>
+        <connection>scm:git:${project.scm.url}</connection>
+        <developerConnection>scm:git:${project.scm.url}</developerConnection>
+        <url>git@github.com:PhilippParis/asyncapi-generator.git</url>
+        <tag>HEAD</tag>
+    </scm>
+
+    <distributionManagement>
+        <repository>
+            <id>github</id>
+            <name>GitHub Packages</name>
+            <url>https://maven.pkg.github.com/PhilippParis/asyncapi-generator</url>
+        </repository>
+    </distributionManagement>
+
     <properties>
-        <revision>1.0.0-SNAPSHOT</revision>
+        <revision>1.0-SNAPSHOT</revision>
         <maven.compiler.source>11</maven.compiler.source>
         <maven.compiler.target>11</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -99,6 +114,15 @@
                 </plugin>
             </plugins>
         </pluginManagement>
+        <plugins>
+            <plugin>
+                <artifactId>maven-release-plugin</artifactId>
+                <version>2.5.3</version>
+                <configuration>
+                    <scmCommentPrefix>[ci]</scmCommentPrefix>
+                </configuration>
+            </plugin>
+        </plugins>
     </build>
 
 </project>
