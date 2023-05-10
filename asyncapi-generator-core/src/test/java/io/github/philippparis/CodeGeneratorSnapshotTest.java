@@ -62,7 +62,7 @@ class CodeGeneratorSnapshotTest {
     private String createSnapshot(List<GeneratedFile> files) {
         final var sb = new StringBuilder();
         for (final var file : files) {
-            sb.append(file.getPath().toString()).append("\r\n");
+            sb.append(file.getPath().toString().replace("/", "\\")).append("\r\n");
             sb.append("--------------------\r\n");
             sb.append(file.getContent()).append("\r\n");
             sb.append("====================\r\n");
