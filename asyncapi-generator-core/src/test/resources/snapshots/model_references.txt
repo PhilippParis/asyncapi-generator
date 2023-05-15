@@ -35,7 +35,6 @@ public class Child1 {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        if (!super.equals(o)) return false;
         Child1 other = (Child1) o;
         return Objects.equals(child2, other.child2);
     }
@@ -84,7 +83,6 @@ public class Child2 {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        if (!super.equals(o)) return false;
         Child2 other = (Child2) o;
         return Objects.equals(prop, other.prop);
     }
@@ -147,7 +145,6 @@ public class Root {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        if (!super.equals(o)) return false;
         Root other = (Root) o;
         return Objects.equals(child, other.child)
         && Objects.equals(child2, other.child2);

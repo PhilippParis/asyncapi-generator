@@ -106,7 +106,6 @@ public class NumberFormats {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        if (!super.equals(o)) return false;
         NumberFormats other = (NumberFormats) o;
         return Objects.equals(propNumber, other.propNumber)
         && Objects.equals(propFloat, other.propFloat)
@@ -233,7 +232,6 @@ public class StringFormats {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        if (!super.equals(o)) return false;
         StringFormats other = (StringFormats) o;
         return Objects.equals(propString, other.propString)
         && Objects.equals(propBytes, other.propBytes)

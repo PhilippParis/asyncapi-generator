@@ -35,7 +35,6 @@ public class Item {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        if (!super.equals(o)) return false;
         Item other = (Item) o;
         return Objects.equals(prop, other.prop);
     }
@@ -114,7 +113,6 @@ public class Root {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        if (!super.equals(o)) return false;
         Root other = (Root) o;
         return Objects.equals(uuidArray, other.uuidArray)
         && Objects.equals(integerArray, other.integerArray)

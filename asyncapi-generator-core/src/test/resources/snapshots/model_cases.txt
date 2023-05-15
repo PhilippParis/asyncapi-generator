@@ -77,7 +77,6 @@ public class SomeClass {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        if (!super.equals(o)) return false;
         SomeClass other = (SomeClass) o;
         return Objects.equals(camelCase, other.camelCase)
         && Objects.equals(pascalCase, other.pascalCase)

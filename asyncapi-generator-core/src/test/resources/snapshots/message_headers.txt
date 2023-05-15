@@ -35,7 +35,6 @@ public class Headers {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        if (!super.equals(o)) return false;
         Headers other = (Headers) o;
         return Objects.equals(prop1, other.prop1);
     }
@@ -84,7 +83,6 @@ public class MessageHeaders {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        if (!super.equals(o)) return false;
         MessageHeaders other = (MessageHeaders) o;
         return Objects.equals(prop2, other.prop2);
     }

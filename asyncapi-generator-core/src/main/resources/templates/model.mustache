@@ -57,7 +57,9 @@ public {{#type.properties.empty}}abstract {{/type.properties.empty}}class {{type
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
+{{#type.parent}}
         if (!super.equals(o)) return false;
+{{/type.parent}}
         {{type.typeName}} other = ({{type.typeName}}) o;
 {{#type.properties}}
         {{#-first}}return{{/-first}}{{^-first}}&&{{/-first}} Objects.equals({{propertyName}}, other.{{propertyName}}){{#-last}};{{/-last}}
