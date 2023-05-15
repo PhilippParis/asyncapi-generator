@@ -35,4 +35,8 @@ public abstract class Type {
         return "password".equals(schema.getFormat());
     }
 
+    public String getSubTypeName() {
+        return getId();
+    }
+
 }

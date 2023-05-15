@@ -32,7 +32,12 @@ public class ObjectType extends Type {
     }
 
     public List<ModelProperty> getProperties() {
-        return properties;
+        if (parent == null || !(parent instanceof ObjectType)) {
+            return properties;
+        }
+        return properties.stream()
+                .filter(i -> !i.getPropertyName().equals(((ObjectType) parent).getDiscriminator()))
+                .collect(Collectors.toList());
     }
 
     public void addChild(final Type type) {
@@ -64,5 +69,19 @@ public class ObjectType extends Type {
     @Override
     public Optional<String> getTemplate() {
         return Optional.of("model.mustache");
+    }
+
+    @Override
+    public String getSubTypeName() {
+        if (parent == null || !(parent instanceof ObjectType)) {
+            return getId();
+        }
+        return properties.stream()
+                .filter(i -> i.getPropertyName().equals(((ObjectType) parent).getDiscriminator()))
+                .map(ModelProperty::getPropertyType)
+                .map(i -> i.schema.getConstant())
+                .filter(StringUtils::isNotBlank)
+                .findAny()
+                .orElse(getId());
     }
 }
