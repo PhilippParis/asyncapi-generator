@@ -51,6 +51,20 @@ public class Primitives {
         }
     }
 
+    public static class YearMonthType extends Type {
+        public YearMonthType(Schema schema) {
+            super(schema);
+        }
+        @Override
+        public String getTypeName() {
+            return "YearMonth";
+        }
+        @Override
+        public Set<String> getImports() {
+            return Set.of("java.time.YearMonth");
+        }
+    }
+
     public static class LocalDateType extends Type {
         public LocalDateType(Schema schema) {
             super(schema);

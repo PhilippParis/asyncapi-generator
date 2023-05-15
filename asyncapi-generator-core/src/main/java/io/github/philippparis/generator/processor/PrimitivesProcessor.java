@@ -63,6 +63,8 @@ public class PrimitivesProcessor extends Processor {
                 return new Primitives.LocalDateType(schema);
             case "date-time":
                 return new Primitives.OffsetDateTime(schema);
+            case "year-month":
+                return new Primitives.YearMonthType(schema);
             default:
                 return new Primitives.StringType(schema);
         }
