@@ -8,9 +8,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class Child1 {
 
-    @JsonProperty(value = "child2", required = false)
     private Child2 child2;
 
+    @JsonProperty(value = "child2", required = false)
     public Child2 getChild2() {
         return this.child2;
     }
@@ -56,9 +56,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class Child2 {
 
-    @JsonProperty(value = "prop", required = false)
     private Integer prop;
 
+    @JsonProperty(value = "prop", required = false)
     public Integer getProp() {
         return this.prop;
     }
@@ -104,11 +104,10 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class Root {
 
-    @JsonProperty(value = "child", required = false)
     private Child1 child;
-    @JsonProperty(value = "child2", required = false)
     private Child2 child2;
 
+    @JsonProperty(value = "child", required = false)
     public Child1 getChild() {
         return this.child;
     }
@@ -120,6 +119,7 @@ public class Root {
         return this;
     }
 
+    @JsonProperty(value = "child2", required = false)
     public Child2 getChild2() {
         return this.child2;
     }

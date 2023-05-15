@@ -8,9 +8,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class Item {
 
-    @JsonProperty(value = "prop", required = false)
     private Integer prop;
 
+    @JsonProperty(value = "prop", required = false)
     public Integer getProp() {
         return this.prop;
     }
@@ -58,13 +58,11 @@ import java.util.ArrayList;
 
 public class Root {
 
-    @JsonProperty(value = "uuidArray", required = false)
     private ArrayList<UUID> uuidArray = new ArrayList<UUID>();
-    @JsonProperty(value = "integerArray", required = false)
     private ArrayList<Integer> integerArray = new ArrayList<Integer>();
-    @JsonProperty(value = "objectArray", required = false)
     private ArrayList<Item> objectArray = new ArrayList<Item>();
 
+    @JsonProperty(value = "uuidArray", required = false)
     public ArrayList<UUID> getUuidArray() {
         return this.uuidArray;
     }
@@ -76,6 +74,7 @@ public class Root {
         return this;
     }
 
+    @JsonProperty(value = "integerArray", required = false)
     public ArrayList<Integer> getIntegerArray() {
         return this.integerArray;
     }
@@ -87,6 +86,7 @@ public class Root {
         return this;
     }
 
+    @JsonProperty(value = "objectArray", required = false)
     public ArrayList<Item> getObjectArray() {
         return this.objectArray;
     }

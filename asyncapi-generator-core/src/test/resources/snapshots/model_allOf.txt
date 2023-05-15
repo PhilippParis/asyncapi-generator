@@ -8,9 +8,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class Child1 extends Root {
 
-    @JsonProperty(value = "childProp1", required = false)
     private Integer childProp1;
 
+    @JsonProperty(value = "childProp1", required = false)
     public Integer getChildProp1() {
         return this.childProp1;
     }
@@ -57,9 +57,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class Child2 extends Root {
 
-    @JsonProperty(value = "childProp2", required = false)
     private Integer childProp2;
 
+    @JsonProperty(value = "childProp2", required = false)
     public Integer getChildProp2() {
         return this.childProp2;
     }
@@ -113,9 +113,9 @@ import com.fasterxml.jackson.annotation.JsonSubTypes;
 })
 public class Root {
 
-    @JsonProperty(value = "rootProp", required = false)
     private Integer rootProp;
 
+    @JsonProperty(value = "rootProp", required = false)
     public Integer getRootProp() {
         return this.rootProp;
     }

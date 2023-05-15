@@ -8,9 +8,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class Headers {
 
-    @JsonProperty(value = "prop1", required = false)
     private Integer prop1;
 
+    @JsonProperty(value = "prop1", required = false)
     public Integer getProp1() {
         return this.prop1;
     }
@@ -56,9 +56,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class MessageHeaders {
 
-    @JsonProperty(value = "prop2", required = false)
     private Integer prop2;
 
+    @JsonProperty(value = "prop2", required = false)
     public Integer getProp2() {
         return this.prop2;
     }

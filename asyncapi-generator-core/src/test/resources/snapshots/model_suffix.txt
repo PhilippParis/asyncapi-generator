@@ -9,9 +9,9 @@ import java.math.BigDecimal;
 
 public class AllOfDto extends SimpleClass1Dto {
 
-    @JsonProperty(value = "prop", required = false)
     private BigDecimal prop;
 
+    @JsonProperty(value = "prop", required = false)
     public BigDecimal getProp() {
         return this.prop;
     }
@@ -87,9 +87,9 @@ import java.math.BigDecimal;
 })
 public class SimpleClass1Dto extends RootOneOfDto {
 
-    @JsonProperty(value = "prop1", required = false)
     private BigDecimal prop1;
 
+    @JsonProperty(value = "prop1", required = false)
     public BigDecimal getProp1() {
         return this.prop1;
     }
@@ -137,9 +137,9 @@ import java.math.BigDecimal;
 
 public class SimpleClass2Dto extends RootOneOfDto {
 
-    @JsonProperty(value = "other", required = false)
     private SimpleClass1Dto other;
 
+    @JsonProperty(value = "other", required = false)
     public SimpleClass1Dto getOther() {
         return this.other;
     }

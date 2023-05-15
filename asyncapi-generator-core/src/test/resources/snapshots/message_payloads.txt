@@ -30,9 +30,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class MessageWithObjectPayload {
 
-    @JsonProperty(value = "prop", required = false)
     private Integer prop;
 
+    @JsonProperty(value = "prop", required = false)
     public Integer getProp() {
         return this.prop;
     }
@@ -78,9 +78,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class ObjectPayload1 extends MessageOneOf {
 
-    @JsonProperty(value = "prop1", required = false)
     private Integer prop1;
 
+    @JsonProperty(value = "prop1", required = false)
     public Integer getProp1() {
         return this.prop1;
     }
@@ -127,9 +127,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class ObjectPayload2 extends MessageOneOf {
 
-    @JsonProperty(value = "prop2", required = false)
     private Integer prop2;
 
+    @JsonProperty(value = "prop2", required = false)
     public Integer getProp2() {
         return this.prop2;
     }

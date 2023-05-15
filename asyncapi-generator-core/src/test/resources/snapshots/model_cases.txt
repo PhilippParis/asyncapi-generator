@@ -8,15 +8,12 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class SomeClass {
 
-    @JsonProperty(value = "camelCase", required = false)
     private Integer camelCase;
-    @JsonProperty(value = "PascalCase", required = false)
     private Integer pascalCase;
-    @JsonProperty(value = "snake_case", required = false)
     private Integer snakeCase;
-    @JsonProperty(value = "kebab-case", required = false)
     private Integer kebabCase;
 
+    @JsonProperty(value = "camelCase", required = false)
     public Integer getCamelCase() {
         return this.camelCase;
     }
@@ -28,6 +25,7 @@ public class SomeClass {
         return this;
     }
 
+    @JsonProperty(value = "PascalCase", required = false)
     public Integer getPascalCase() {
         return this.pascalCase;
     }
@@ -39,6 +37,7 @@ public class SomeClass {
         return this;
     }
 
+    @JsonProperty(value = "snake_case", required = false)
     public Integer getSnakeCase() {
         return this.snakeCase;
     }
@@ -50,6 +49,7 @@ public class SomeClass {
         return this;
     }
 
+    @JsonProperty(value = "kebab-case", required = false)
     public Integer getKebabCase() {
         return this.kebabCase;
     }
