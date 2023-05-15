@@ -10,6 +10,7 @@ components:
       properties:
         rootProp:
           type: integer
+          format: int32
       discriminator: objectType
     Child1:
       allOf:
@@ -18,6 +19,7 @@ components:
           properties:
             childProp1:
               type: integer
+              format: int32
     Child2:
       allOf:
         - $ref: '#/components/schemas/Root'
@@ -25,3 +27,4 @@ components:
           properties:
             childProp2:
               type: integer
+              format: int32

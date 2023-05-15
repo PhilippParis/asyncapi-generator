@@ -17,6 +17,7 @@ components:
           type: object
           additionalProperties:
             type: integer
+            format: int32
         objectMap:
           type: object
           additionalProperties:
@@ -26,3 +27,4 @@ components:
       properties:
         prop:
           type: integer
+          format: int32

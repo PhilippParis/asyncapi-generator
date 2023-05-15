@@ -10,9 +10,13 @@ components:
       properties:
         camelCase:
           type: integer
+          format: int32
         PascalCase:
           type: integer
+          format: int32
         snake_case:
           type: integer
+          format: int32
         kebab-case:
           type: integer
+          format: int32

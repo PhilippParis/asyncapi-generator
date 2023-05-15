@@ -33,10 +33,13 @@ public class PrimitivesProcessor extends Processor {
     }
 
     private Type processInteger(final Schema schema) {
+        if ("int32".equals(schema.getFormat())) {
+            return new Primitives.IntType(schema);
+        }
         if ("int64".equals(schema.getFormat())) {
             return new Primitives.LongType(schema);
         }
-        return new Primitives.IntType(schema);
+        return new Primitives.BigIntegerType(schema);
     }
 
     private Type processNumber(final Schema schema) {

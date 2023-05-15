@@ -6,6 +6,7 @@ import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.math.BigDecimal;
+import java.math.BigInteger;
 
 public class NumberFormats {
 
@@ -16,7 +17,7 @@ public class NumberFormats {
     @JsonProperty(value = "propDouble", required = false)
     private Double propDouble;
     @JsonProperty(value = "propInteger", required = false)
-    private Integer propInteger;
+    private BigInteger propInteger;
     @JsonProperty(value = "propInt32", required = false)
     private Integer propInt32;
     @JsonProperty(value = "propInt64", required = false)
@@ -55,13 +56,13 @@ public class NumberFormats {
         return this;
     }
 
-    public Integer getPropInteger() {
+    public BigInteger getPropInteger() {
         return this.propInteger;
     }
-    public void setPropInteger(Integer propInteger) {
+    public void setPropInteger(BigInteger propInteger) {
         this.propInteger = propInteger;
     }
-    public NumberFormats propInteger(Integer propInteger) {
+    public NumberFormats propInteger(BigInteger propInteger) {
         this.propInteger = propInteger;
         return this;
     }

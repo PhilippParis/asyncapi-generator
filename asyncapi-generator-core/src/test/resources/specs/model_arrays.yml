@@ -17,6 +17,7 @@ components:
           type: array
           items:
             type: integer
+            format: int32
         objectArray:
           type: array
           items:
@@ -26,3 +27,4 @@ components:
       properties:
         prop:
           type: integer
+          format: int32

@@ -19,6 +19,7 @@ components:
           const: child1Discriminator
         prop1:
           type: integer
+          format: int32
     Child2:
       type: object
       properties:
@@ -26,8 +27,10 @@ components:
           type: string
         prop2:
           type: integer
+          format: int32
     Child3:
       type: object
       properties:
         prop2:
           type: integer
+          format: int32

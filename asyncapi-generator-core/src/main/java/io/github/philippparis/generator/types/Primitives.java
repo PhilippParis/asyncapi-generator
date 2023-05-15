@@ -26,6 +26,20 @@ public class Primitives {
         }
     }
 
+    public static class BigIntegerType extends Type {
+        public BigIntegerType(Schema schema) {
+            super(schema);
+        }
+        @Override
+        public String getTypeName() {
+            return "BigInteger";
+        }
+        @Override
+        public Set<String> getImports() {
+            return Set.of("java.math.BigInteger");
+        }
+    }
+
     public static class StringType extends Type {
         public StringType(Schema schema) {
             super(schema);

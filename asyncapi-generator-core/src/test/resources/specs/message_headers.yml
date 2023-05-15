@@ -14,9 +14,11 @@ components:
         properties:
           prop2:
             type: integer
+            format: int32
   schemas:
     Headers:
       type: object
       properties:
         prop1:
           type: integer
+          format: int32

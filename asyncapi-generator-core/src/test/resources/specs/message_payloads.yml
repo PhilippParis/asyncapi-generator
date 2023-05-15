@@ -17,9 +17,11 @@ components:
         properties:
           prop:
             type: integer
+            format: int32
     MessageWithPrimitivePayload:
       payload:
         type: integer
+        format: int32
     MessageOneOf:
       payload:
         oneOf:
@@ -33,8 +35,10 @@ components:
       properties:
         prop1:
           type: integer
+          format: int32
     ObjectPayload2:
       type: object
       properties:
         prop2:
           type: integer
+          format: int32

@@ -15,8 +15,10 @@ components:
       properties:
         prop1:
           type: integer
+          format: int32
     Child2:
       type: object
       properties:
         prop2:
           type: integer
+          format: int32
